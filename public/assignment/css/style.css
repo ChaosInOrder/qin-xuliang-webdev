@@ -7,7 +7,6 @@ body {
     padding-bottom: 70px;
 }
 
-
 @media(max-width: 767px){
 	#nav-header{
 		position: absolute;
@@ -24,6 +23,9 @@ body {
 	#nav-plus{
 		position: absolute;
 		right: 24px;
+	}
+	#pc-display{
+		display: none;
 	}
 }
 
