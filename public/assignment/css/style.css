@@ -7,6 +7,20 @@ body {
     padding-bottom: 70px;
 }
 
+@media(max-width: 767px){
+	#nav-header{
+		position: absolute;
+		left: 36px;
+	}
+	#nav-ok{
+		position: absolute;
+		right: 36px;
+	}
+	#nav-user{
+		position: absolute;
+		right: 36px;
+	}
+}
 .navbar-default{
 	background-color: #337ab7;
 }
