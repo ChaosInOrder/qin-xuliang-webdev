@@ -11,19 +11,19 @@ body {
 @media(max-width: 767px){
 	#nav-header{
 		position: absolute;
-		left: 36px;
+		left: 24px;
 	}
 	#nav-ok{
 		position: absolute;
-		right: 36px;
+		right: 24px;
 	}
 	#nav-user{
 		position: absolute;
-		right: 36px;
+		right: 24px;
 	}
 	#nav-plus{
 		position: absolute;
-		right: 36px;
+		right: 24px;
 	}
 }
 
