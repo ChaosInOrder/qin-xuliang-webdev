@@ -29,6 +29,11 @@ body {
 	}
 }
 
+@media(min-width: 768px){
+	#phone-display{
+		display: none
+	}
+}
 
 .navbar-default{
 	background-color: #337ab7;
