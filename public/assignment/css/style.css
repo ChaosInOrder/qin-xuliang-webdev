@@ -49,3 +49,6 @@ body {
 .navbar-default .navbar-nav .navbar-link{
 	color: white;
 }
+ dt{
+ 	margin: 10px;
+ }
