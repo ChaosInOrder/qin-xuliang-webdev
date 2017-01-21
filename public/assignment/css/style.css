@@ -49,6 +49,23 @@ body {
 	color: white;
 }
 
+.middle{
+	vertical-align: middle;
+}
+.wideget{
+	position: relative;
+	width: 100%;
+}
+.content{
+	position: absolute;
+	z-index: 1;
+}
+.right-up{
+	position: absolute;
+	z-index: 2;
+	right: 0px;
+	top: 70px;
+
  dt{
  	margin: 10px;
  }
