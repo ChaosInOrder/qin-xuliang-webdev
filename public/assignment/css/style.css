@@ -38,20 +38,17 @@ body {
 	}
 }
 
-.navbar-default{
+.navbar-blue{
 	background-color: #337ab7;
 }
-
-#navbar-back{
-	color: white;
-}
-.navbar-default .navbar-brand{
-	color: white;
+#white{
+	color:white;
 }
 
-.navbar-default .navbar-nav .navbar-link{
+.white{
 	color: white;
 }
+
  dt{
  	margin: 10px;
  }
