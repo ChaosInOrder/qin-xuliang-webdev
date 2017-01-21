@@ -52,19 +52,15 @@ body {
 .middle{
 	vertical-align: middle;
 }
-.wideget{
-	position: relative;
-	width: 100%;
-}
+
 .content{
-	position: absolute;
-	z-index: 1;
+	position: relative;
 }
 .right-up{
 	position: absolute;
-	z-index: 2;
-	right: 0px;
-	top: 70px;
+	top: 0;
+	right: 0;
+}
 
  dt{
  	margin: 10px;
