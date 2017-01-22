@@ -62,7 +62,7 @@ body {
 }
 
 .blue{
-	color: blue;
+	color: #337ab7;
 }
 .middle{
 	vertical-align: middle;
@@ -83,7 +83,4 @@ body {
 
  dl{
  	font-family: 
- }
- p{
- 	text-indet:2em;
  }
