@@ -36,15 +36,19 @@ body {
 	#phone-display{
 		display: none
 	}
+	#width{
+		width: 66%;
+	}
+	#right{
+	position: absolute;
+	right: 0;
+}
 }
 
 #base{
 	position: relative;
 }
-#right{
-	position: absolute;
-	right: 0;
-}
+
 #left{
 	position: absolute;
 	left: 0;
@@ -83,4 +87,9 @@ body {
 
  dl{
  	font-family: 
+ }
+
+ .small-radio{
+ 	width: 10px;
+ 	height: 10px;
  }
