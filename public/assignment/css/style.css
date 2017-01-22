@@ -93,3 +93,15 @@ body {
  	width: 10px;
  	height: 10px;
  }
+
+ .width100{
+ 	width: 100%;
+ }
+
+ .width33{
+ 	width: 33%;
+ }
+
+ .width66{
+ 	width: 66%;
+ }
