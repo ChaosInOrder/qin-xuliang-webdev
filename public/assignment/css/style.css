@@ -27,7 +27,7 @@ body {
 		position: absolute;
 		right: 24px;
 	}
-	#pc-display{
+	.pc-display{
 		display: none;
 	}
 }
@@ -36,6 +36,18 @@ body {
 	#phone-display{
 		display: none
 	}
+}
+
+#base{
+	position: relative;
+}
+#right{
+	position: absolute;
+	right: 0;
+}
+#left{
+	position: absolute;
+	left: 0;
 }
 
 .navbar-blue{
