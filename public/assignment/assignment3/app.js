@@ -1,3 +1,0 @@
-(functoin()){
-	angular.module('WebAppMaker',[])
-}
