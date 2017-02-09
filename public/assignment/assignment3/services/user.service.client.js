@@ -19,15 +19,29 @@
 					};
 			return api;
 			function createUser(user){
-				
+				user._id=users.length+1;
+				users.push(user);
+				console.log(uer);
+				return user;
+
 			}
 
 			function findUserById(userId){
+				for(var i in users){
+					if (users[i]._id==userId)
+						return users[i];
 
+				}
+				return null;
 			}
 
 			function findUserByUsername(username){
+                for(var i in users){
+                    if (users[i].username==username)
+                        return users[i];
 
+                }
+                return null;
 			}
 
 			function findUserByCredentials(username,password){
@@ -41,11 +55,19 @@
 			}
 
 			function updateUser(userId,user){
+                for(var i in users){
+                    if (users[i]._id==userId)
+                        users[i]=user;
 
+                }
 			}
 
 			function deleteUser(userId){
+                for(var i in users){
+                    if (users[i]._id==userId)
+                        users.splice(i,1);
 
+                }
 			}
 			
 		}

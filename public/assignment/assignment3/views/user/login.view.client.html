@@ -1,18 +1,21 @@
-<div class="container">
+<div class="container-fluid">
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
     <h1>Login</h1>
     <label for="username">Username</label>
-    <input ng-model="model.user.username"
+    <input ng-model="user.username"
            class="form-control"
            placeholder="username"
            id="username" />
     <label for="password">Password</label>
-    <input ng-model="model.user.passoword"
+    <input ng-model="user.passoword"
            class="form-control"
            placeholder="password"
            id="password" />
     
-    <a class="btn btn-primary btn-block"
-       ng-click="model.login(model.user)">Login</a>
+    <a ng-click="model.login(model.user)" class="btn btn-primary btn-block">Login</a>
     <a class="btn btn-success btn-block"
        href="#/register">Register</a>
 </div>
