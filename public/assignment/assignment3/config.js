@@ -1,23 +1,27 @@
-(function()){
+(function(){
 	angular
 		.module("WebAppMaker")
 		.config(Config);
 		function Config($routeProvider){
 			$routeProvider
+                .when("/",{
+                	redirectTo: '/login'
+			})
 				.when("/login",{
-					templateUrl:"views/user/login.view.client.html"
+					templateUrl:"views/user/login.view.client.html",
+					controller:"LoginController",
+					controllerAs:"model"
 				})
-				.when("/",{
-					templateUrl:"views/user/login.view.client.html"
-				})
-				.when("default",{
-					templateUrl:"views/user/login.view.client.html"
-				})
+
 				.when("/register",{
-					templateUrl:"views/user/register.view.client.html"
+					templateUrl:"views/user/register.view.client.html",
+					controller: "RegisterController",
+                    controllerAs: "model"
 				})
 				.when("/user/:uid",{
-					templateUrl:"views/user/profile.view.client.html"
+					templateUrl:"views/user/profile.view.client.html",
+                    controller: "ProfileController",
+                    controllerAs: "model"
 				})
 				.when("/user/:uid/website",{
 					templateUrl:"views/website/website-list.view.client.html"
@@ -36,18 +40,10 @@
 				})
 				.when("/user/:uid/website/:wid/page/:pid",{
 					templateUrl:"page-edit.view.client.html"
-				})
-
-				.when("/user/:uid/website/:wid/page/:pid/widget",{
-					templateUrl:"widget-list.view.client.html"
-				.when("/user/:uid/website/:wid/page/:pid/widget/new",{
-					templateUrl:"widget-chooser.view.client.html"
-				.when("/user/:uid/website/:wid/page/:pid/widget/:wgid",{
-					templateUrl:"widget-edit.view.client.html"
-				})
+				});
 
 
 
 		}
 		
-}
+})();
