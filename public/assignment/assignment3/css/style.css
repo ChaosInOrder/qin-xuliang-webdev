@@ -89,9 +89,9 @@ body {
  	margin: 10px;
  }
 
- dl{
- 	font-family: 
- }
+.no-top-padding{
+	padding-top: 0px;
+}
 
  .small-radio{
  	width: 10px;

@@ -5,10 +5,10 @@
     function ProfilerController($routeParams,UserService) {
         var vm=this;
 	    var userId=$routePAramas['uid'];
-        var user=UserService.findUserById(userId);
 
         function init() {
 
+            var user=UserService.findUserById(userId);
         }
         init();
 

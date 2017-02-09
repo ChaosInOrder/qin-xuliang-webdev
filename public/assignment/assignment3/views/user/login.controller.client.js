@@ -1,8 +1,8 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("LoginController",LoginController);
-    function LoginController($location,UserService) {
+        .controller("LoginController", LoginController);
+    function LoginController($location,$windows,UserService) {
         var vm=this;
 
         vm.login=login;
@@ -18,7 +18,7 @@
                 $lcoation.url("/user/"+user._id);
             }
             else{
-                vm.error="User doesn't exist!";
+                $window.alert("User doesn't exist!");
             }
         }
 
