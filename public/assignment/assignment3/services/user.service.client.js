@@ -18,10 +18,11 @@
 		            "deleteUser": deleteUser
 					};
 			return api;
+
+
 			function createUser(user){
 				user._id=users.length+1;
 				users.push(user);
-				console.log(uer);
 				return user;
 
 			}
@@ -44,15 +45,15 @@
                 return null;
 			}
 
-			function findUserByCredentials(username,password){
-				for(var user in users){
-					if(users[user].username==username && users[user].password==password){
-						return users[user];
-					}
-
-				}
-				return null;
-			}
+            function findUserByCredentials(username, password) {
+                for(var u in users) {
+                    if( users[u].username == username &&
+                        users[u].password == password ) {
+                        return users[u];
+                    }
+                }
+                return null;
+            }
 
 			function updateUser(userId,user){
                 for(var i in users){
@@ -69,6 +70,6 @@
 
                 }
 			}
-			
+
 		}
 })();
