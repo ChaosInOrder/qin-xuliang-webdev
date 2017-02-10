@@ -1,45 +1,47 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-blue" role="navigation">
     <table class="width100">
         <tr>
-            <td class="width33">           
-                <div class="container-fluid pc-display">       
+            <td class="width33">
+                <div class="container-fluid pc-display">
                     <div class="navbar-header" id="nav-header">
                         <p class="navbar-text pull-left">
-                            <a href="website-list.html" class="navbar-link" id="navbar-back">
+                            <a ng-href="#/user/{{model.userId}}/website" class="navbar-link" id="navbar-back">
                             <span class="glyphicon glyphicon-chevron-left white"></span>
                             </a>
                         </p>
                         <a class="navbar-brand" id="white">
                                 Websites
-                        </a>       
+                        </a>
                     </div>
                     <ul class="nav navbar-nav navbar-right" id="nav-plus">
                         <li>
-                            <a href="website-new.html" class="navbar-link">
+                            <a ng-href="#/user/{{model.userId}}/website/new" class="navbar-link">
                                 <span class="glyphicon glyphicon-plus white"></span>
                             </a>
                         </li>
                     </ul>
+                </div>
             </td>
-            <td class="width66">      
-                    <div class="container-fluid">       
+            <td class="width66">
+                    <div class="container-fluid">
                         <div class="navbar-header" id="nav-header">
                             <p class="navbar-text pull-left" id="phone-display">
-                                <a href="website-list.html" class="navbar-link" id="navbar-back">
+                                <a ng-href="#/user/{{model.userId}}/website" class="navbar-link" id="navbar-back">
                                 <span class="glyphicon glyphicon-chevron-left white"></span>
                                 </a>
-                            </p>     
+                            </p>
                             <a class="navbar-brand" id="white">
                                     <label> Edit Website</label>
-                            </a>       
+                            </a>
                         </div>
                         <ul class="nav navbar-nav navbar-right" id="nav-plus">
                             <li>
-                                <a href="website-list.html" class="navbar-link">
+                                <a ng-click="model.updateWebsite(model.website)" class="navbar-link">
                                     <span class="glyphicon glyphicon-ok white"></span>
                                 </a>
                             </li>
                         </ul>
+                    </div>
             </td>
         </tr>
     </table>
@@ -49,53 +51,27 @@
  <div id="base" class="container-fluid">
                     <div  id="left" class="container-fluid pc-display width33">
                         <dl>
-                            <dt>
-                                <div>
-                                    <a href="../page/page-list.html">Address Book App</a>
-                                    <a class="pull-right" href="website-edit.html">
+                            <dt ng-repeat="website in model.websites">
+                                <a ng-href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                                <a class="pull-right" ng-href="#/user/{{model.userId}}/website/{{website._id}}">
                                     <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                </div>
-                            </dt>
-                            <dt>
-                                <div>
-                                    <a href="../page/page-list.html">Blogger</a>
-                                    <a class="pull-right" href="website-edit.html">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                </div>
-                            </dt>
-                            <dt>
-                                <div>
-                                    <a href="../page/page-list.html">Blogging App</a>
-                                    <a class="pull-right" href="website-edit.html">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                </div>
-                            </dt>
-                            <dt>
-                                <div>
-                                    <a href="../page/page-list.html">Scrip Testing App</a>
-                                    <a class="pull-right" href="website-edit.html">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    </a>
-                                </div>
+                                </a>
                             </dt>
                         </dl>
                     </div>
                    <div  class="container-fluid width66" id="right">
                         <form role="form">
                             <div class="form-group">
-                                <label for="websitename">Website Name</label>
-                                <input type="text" class="form-control" id="website-name" placeholder="Website Name" value="ToDo List">
+                                <label for="website-name">Website Name</label>
+                                <input type="text" class="form-control" id="website-name" placeholder="Website Name" ng-model="model.website.name">
                             </div>
                             <div class="form-group">
-                                <label for="websitedescription">Website Description</label>
-                                <textarea class="form-control" id="website-description" rows="6" placeholder="Website Description"></textarea>
+                                <label for="website-description">Website Description</label>
+                                <textarea class="form-control" id="website-description" rows="6" placeholder="Website Description" ng-model="model.website.description"></textarea>
                             </div>
                         </form>
                         <a class="btn btn-danger btn-block"
-                            href="website-list.html">Delete</a>
+                           ng-click="model.deleteWebsite()">Delete</a>
                     </div>
 
     </div>
@@ -107,7 +83,7 @@
         </p>
         <ul class="nav navbar-nav navbar-right" id="nav-user">
             <li>
-                <a href="../user/profile.html" class="navbar-link">
+                <a ng-href="#/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user white"></span>
                 </a>
             </li>

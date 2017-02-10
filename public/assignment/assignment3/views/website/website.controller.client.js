@@ -13,29 +13,52 @@
         init();
     }
 
-    function NewWebsiteController($routeProvider, WebsiteService) {
+    function NewWebsiteController($routeParams, $window,$location,WebsiteService) {
         var vm = this;
-        vm.websiteId = $routeProvider.websiteId;
-        vm.updateWebsite = updateWebsite;
-        vm.deleteWebsite = deleteWebsite;
+        vm.createWebsite=createWebsite;
+        vm.userId = $routeParams["uid"];
 
-        function updateWebsite(website) {
-            WebsiteService.updateWebsite(vm.websiteId, website);
+        function init() {
+            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
         }
+        init();
 
-        function deleteWebsite() {
-            WebsiteService.deleteWebsite(vm.websiteId);
+
+        function createWebsite(website) {
+            WebsiteService.createWebsite(vm.userId,website);
+            $location.url("/user/"+vm.userId+"/website");
+            $window.alert("Create new website!");
         }
 
     }
 
-    function EditWebsiteController($routeParams, $window,UserService) {
+    function EditWebsiteController($routeParams,$location, $window,WebsiteService) {
         var vm = this;
+        //vm.websiteId = $routeProvider.websiteId;
+        vm.userId = $routeParams["uid"];
+        vm.websiteId = $routeParams["wid"];
+        vm.updateWebsite = updateWebsite;
+        vm.deleteWebsite = deleteWebsite;
+
 
         function init() {
+            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
+            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+        }
+        init();
+
+        function updateWebsite(website) {
+            WebsiteService.updateWebsite(vm.websiteId, website);
+            $location.url("/user/"+vm.userId+"/website");
+            console.log(2)
+            $window.alert("Update Website Info!");
         }
 
-        init();
+        function deleteWebsite() {
+            WebsiteService.deleteWebsite(vm.websiteId);
+            $location.url("/user/"+vm.userId+"/website");
+            $window.alert("Delete Website!");
+        }
 
     }
 })();
