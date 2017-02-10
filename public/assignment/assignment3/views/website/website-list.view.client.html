@@ -1,23 +1,23 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-blue" role="navigation">
-    <div class="container-fluid">       
+    <div class="container-fluid">
         <div class="navbar-header" id="nav-header">
             <p class="navbar-text pull-left">
-                <a href="../user/profile.html" class="navbar-link" id="navbar-back">
+                <a ng-href="#/user/{{model.userId}}" class="navbar-link" id="navbar-back">
                 <span class="glyphicon glyphicon-chevron-left white"></span>
                 </a>
             </p>
             <a class="navbar-brand" id="white">
                     Websites
-            </a>       
+            </a>
         </div>
         <ul class="nav navbar-nav navbar-right" id="nav-plus">
             <li>
-                <a href="website-new.html" class="navbar-link">
+                <a ng-href="#/user/{{model.userId}}/website/new" class="navbar-link">
                     <span class="glyphicon glyphicon-plus white"></span>
                 </a>
             </li>
         </ul>
-        
+
 
     </div>
 </nav>
@@ -26,37 +26,11 @@
 
     <div class="container-fluid">
         <dl>
-            <dt>
-                <div>
-                    <a href="../page/page-list.html">Address Book App</a>
-                    <a class="pull-right" href="website-edit.html">
+            <dt ng-repeat="website in model.websites">
+                    <a ng-href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                    <a class="pull-right" ng-href="#/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-edit"></span>
                     </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../page/page-list.html">Blogger</a>
-                    <a class="pull-right" href="website-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../page/page-list.html">Blogging App</a>
-                    <a class="pull-right" href="website-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../page/page-list.html">Scrip Testing App</a>
-                    <a class="pull-right" href="website-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
             </dt>
         </dl>
     </div>
@@ -66,7 +40,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right" id="nav-user">
             <li>
-                <a href="../user/profile.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user white"></span>
                 </a>
             </li>

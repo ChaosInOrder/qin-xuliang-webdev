@@ -10,15 +10,15 @@
 			  { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem" },
 			  { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem" },
 			  { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
-			]
+			];
 			var api={
 		            "createWebsite": createWebsite,
 		            "findWebsitesByUser": findWebsitesByUser,
 		            "findWebsiteById": findWebsiteById,
 		            "updateWebsite": updateWebsite,
 		            "deleteWebsite": deleteWebsite
-					}
-			return api
+					};
+			return api;
 			function createWebsite(userId,Website){
 				Website._id=websites.length+1;
 				Website.developerId=userId;
@@ -27,11 +27,11 @@
 
 			}
 
-			function findWebsiteByUser(userId){
-				res=[]
+			function findWebsitesByUser(userId){
+				res=[];
 				for(var i in websites){
-					if(websites[i].developerId==userId)
-						res.push(websites[i]);
+					if(websites[i].developerId == userId)
+                    {res.push(websites[i]);}
 				}
 				return res;
 			}
@@ -39,7 +39,7 @@
 			function findWebsiteById(websiteId){
                 for(var i in websites){
                     if(websites[i].websiteId==websiteId)
-                        return websites[i];
+                    { return websites[i];}
                 }
                 return null;
 			}
@@ -47,7 +47,7 @@
 			function updateWebsite(websiteId, website){
                 for(var i in websites){
                     if(websites[i].websiteId==websiteId)
-                        websites[i]==website;
+                    { websites[i]==website;}
                 }
 			}
 
@@ -57,6 +57,6 @@
                         websites.splice(i,1);
                 }
 			}
-			
+
 		}
-})
+})();
