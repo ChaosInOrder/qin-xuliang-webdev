@@ -20,23 +20,42 @@
 					}
 			return api
 			function createWebsite(userId,Website){
+				Website._id=websites.length+1;
+				Website.developerId=userId;
+				websites.push(Website);
+				return Website;
 
 			}
 
 			function findWebsiteByUser(userId){
-
+				res=[]
+				for(var i in websites){
+					if(websites[i].developerId==userId)
+						res.push(websites[i]);
+				}
+				return res;
 			}
 
 			function findWebsiteById(websiteId){
-
+                for(var i in websites){
+                    if(websites[i].websiteId==websiteId)
+                        return websites[i];
+                }
+                return null;
 			}
 
 			function updateWebsite(websiteId, website){
-
+                for(var i in websites){
+                    if(websites[i].websiteId==websiteId)
+                        websites[i]==website;
+                }
 			}
 
 			function deleteWebsite(websiteId){
-				
+                for(var i in websites){
+                    if(websites[i].websiteId==websiteId)
+                        websites.splice(i,1);
+                }
 			}
 			
 		}
