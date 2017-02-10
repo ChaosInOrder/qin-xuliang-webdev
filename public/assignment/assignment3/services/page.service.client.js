@@ -4,9 +4,9 @@
         .factory("PageService", PageService);
 		function PageService(){
 			var pages=[
-						  { "_id": "1", "name": "Post 1", "websiteId": "4", "description": "Lorem" },
-						  { "_id": "2", "name": "Post 2", "websiteId": "4", "description": "Lorem" },
-						  { "_id": "3", "name": "Post 3", "websiteId": "4", "description": "Lorem" }
+						  { "_id": "1", "name": "Post 1", "websiteId": "4", "title": "Lorem" },
+						  { "_id": "2", "name": "Post 2", "websiteId": "4", "title": "Lorem" },
+						  { "_id": "3", "name": "Post 3", "websiteId": "4", "title": "Lorem" }
 						];
 			var api={
 			            "createPage": createPage,
@@ -47,14 +47,14 @@
 					if(pages[i]._id==pageId)
 					{
 						pages[i].naem=page.name;
-						pages[i].description=page.description;
+						pages[i].title=page.title;
 					}
 			}
 
 			function deletePage(pageId){
 				for(var i in pages){
 					if(pages[i]._id==pageId)
-                    {pages.slice(i,1)}
+                    {pages.splice(i,1)}
 				}
 
 			}

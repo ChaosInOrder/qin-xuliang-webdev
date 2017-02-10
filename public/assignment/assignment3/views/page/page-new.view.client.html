@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                     <div class="container-fluid">       
                         <div class="navbar-header" id="nav-header">
-                            <p class="navbar-text pull-left" id="phone-display">
-                                <a href="page-list.html" class="navbar-link" id="navbar-back">
+                            <p class="navbar-text pull-left">
+                                <a ng-href="#user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link" id="navbar-back">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                                 </a>
                             </p>
@@ -12,7 +12,7 @@
                         </div>
                         <ul class="nav navbar-nav navbar-right" id="nav-plus">
                             <li>
-                                <a href="page-list.html" class="navbar-link">
+                                <a ng-click="model.createPage(model.page)">
                                     <span class="glyphicon glyphicon-ok"></span>
                                 </a>
                             </li>
@@ -27,11 +27,11 @@
                         <form role="form">
                             <div class="form-group">
                                 <label for="pagename">Name</label>
-                                <input type="text" class="form-control" id="pagename" placeholder="Page Name">
+                                <input type="text" class="form-control" id="pagename" placeholder="Page Name" ng-model="model.page.name">
                             </div>
                             <div class="form-group">
                                 <label for="pagetitle">Title</label>
-                                <input type="text" class="form-control" id="pagetitle" placeholder="Page Title">
+                                <input type="text" class="form-control" id="pagetitle" placeholder="Page Title" ng-model="model.pgae.title">
                             </div>
                         </form>
                     </div>
@@ -42,7 +42,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right" id="nav-user">
             <li>
-                <a href="../user/profile.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user blue"></span>
                 </a>
             </li>
