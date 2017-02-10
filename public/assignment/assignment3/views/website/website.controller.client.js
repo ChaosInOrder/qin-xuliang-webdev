@@ -13,12 +13,19 @@
         init();
     }
 
-    function NewWebsiteController($location, $window, UserService) {
+    function NewWebsiteController($routeProvider, WebsiteService) {
         var vm = this;
-        function init() {
+        vm.websiteId = $routeProvider.websiteId;
+        vm.updateWebsite = updateWebsite;
+        vm.deleteWebsite = deleteWebsite;
+
+        function updateWebsite(website) {
+            WebsiteService.updateWebsite(vm.websiteId, website);
         }
 
-        init();
+        function deleteWebsite() {
+            WebsiteService.deleteWebsite(vm.websiteId);
+        }
 
     }
 
