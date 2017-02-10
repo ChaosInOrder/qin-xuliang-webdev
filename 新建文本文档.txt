@@ -1,5 +1,0 @@
-            <a ng-href="#/user/{{model.userId}}/website/{{website._id}}/page">
-                {{website.name}}</a>
-            <a class="pull-right" ng-href="#/user/{{model.userId}}/website/{{website._id}}">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
