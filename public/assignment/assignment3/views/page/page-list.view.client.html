@@ -1,23 +1,23 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
-    <div class="container-fluid">       
+    <div class="container-fluid">
         <div class="navbar-header" id="nav-header">
             <p class="navbar-text pull-left">
-                <a href="../website/website-list.html" class="navbar-link" id="navbar-back">
+                <a ng-href="#user/{{model.userId}}/website" class="navbar-link" id="navbar-back">
                 <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </p>
             <a class="navbar-brand">
                     <label> Pages</label>
-            </a>       
+            </a>
         </div>
         <ul class="nav navbar-nav navbar-right" id="nav-plus">
             <li>
-                <a href="page-new.html" class="navbar-link">
+                <a ng-href="#user/{{model.userId}}/website/{{model.websiteId}}/page/new" class="navbar-link">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </li>
         </ul>
-        
+
 
     </div>
 </nav>
@@ -26,45 +26,11 @@
 
     <div class="container-fluid">
         <dl>
-            <dt>
-                <div>
-                    <a href="../widget/widget-list.html">Blog Post</a>
-                    <a class="pull-right" href="page-edit.html">
+            <dt ng-repeat="page in model.pages">
+                <a ng-href="#/user/{{model.userId}}/website/{{website._id}}/page/{{page._id}}/widget">{{page.name}}</a>
+                <a class="pull-right" ng-href="#/user/{{model.userId}}/website/{{model.website._id}}/page/{{page._id}}">
                     <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../widget/widget-list.html">Blogs</a>
-                    <a class="pull-right" href="page-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../widget/widget-list.html">Home</a>
-                    <a class="pull-right" href="page-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../widget/widget-list.html">About</a>
-                    <a class="pull-right" href="page-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
-            </dt>
-            <dt>
-                <div>
-                    <a href="../widget/widget-list.html">Contact</a>
-                    <a class="pull-right" href="page-edit.html">
-                    <span class="glyphicon glyphicon-edit"></span>
-                    </a>
-                </div>
+                </a>
             </dt>
         </dl>
     </div>
@@ -74,7 +40,7 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right" id="nav-user">
             <li>
-                <a href="../user/profile.html" class="navbar-link">
+                <a ng-href="#/user/{{model.userId}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user blue"></span>
                 </a>
             </li>

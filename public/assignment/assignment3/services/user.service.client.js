@@ -4,10 +4,10 @@
 		.factory("UserService",UserService);
 		function UserService(){
 			var users=[
-                {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-                {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-                {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-                {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
+                {_id: "1", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
+                {_id: "2", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
+                {_id: "3", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
+                {_id: "4", username: "qin", password: "qin", firstName: "666",   lastName: "888" }
             ];
 			var api={
 		            "createUser": createUser,
