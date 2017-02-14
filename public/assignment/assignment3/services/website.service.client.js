@@ -5,7 +5,7 @@
 		function WebsiteService(){
 			var websites=[
 			  { "_id": "1", "name": "Facebook",    "developerId": "4", "description": "Lorem" },
-			  { "_id": "4", "name": "Tweeter",     "developerId": "4", "description": "Lorem" },
+			  { "_id": "4", "name": "Sample",     "developerId": "4", "description": "Lorem" },
 			  { "_id": "3", "name": "Gizmodo",     "developerId": "4", "description": "Lorem" },
 			  { "_id": "2", "name": "Tic Tac Toe", "developerId": "1", "description": "Lorem" },
 			  { "_id": "5", "name": "Checkers",    "developerId": "1", "description": "Lorem" },

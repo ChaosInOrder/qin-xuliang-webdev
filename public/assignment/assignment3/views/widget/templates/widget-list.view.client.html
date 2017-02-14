@@ -1,0 +1,71 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+    <div class="container-fluid">       
+        <div class="navbar-header" id="nav-header">
+            <p class="navbar-text pull-left">
+                <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link" id="navbar-back">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </p>
+            <a class="navbar-brand">
+                    <label> Widgets</label>
+            </a>       
+        </div>
+        <ul class="nav navbar-nav navbar-right" id="nav-plus">
+            <li>
+                <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </li>
+        </ul>
+        
+
+    </div>
+</nav>
+
+
+
+
+        <div class="container" >
+            <div class="content" ng-repeat="widget in widgets">
+                <div class="right-up">  
+                    <button type="button" class="btn btn-default">
+                        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-align-justify"></span></a>
+                    </button>
+                </div>
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING" ng-switch="widget.size">
+                    <h1 ng-switch-when="1">{{widget.text}}</h1>
+                    <h2 ng-switch-when="2">{{widget.text}}</h2>
+                    <h3 ng-switch-when="3">{{widget.text}}</h3>
+                    <h4 ng-switch-when="4">{{widget.text}}</h4>
+                    <h5 ng-switch-when="5">{{widget.text}}</h5>
+                    <h6 ng-switch-when="6">{{widget.text}}</h6>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <img ng-src="{{widget.url}}" width="{{widget.width}}">
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <iframe ng-src="{{model.doYouTrustUrl(widget.url)}}" width="{{widget.width}}"/>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right" id="nav-user">
+            <li>
+                <a ng-href="#user/{{model.userId}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-user blue"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -4,7 +4,7 @@
         .factory("PageService", PageService);
 		function PageService(){
 			var pages=[
-						  { "_id": "1", "name": "Post 1", "websiteId": "4", "title": "Lorem" },
+						  { "_id": "1", "name": "Sample", "websiteId": "4", "title": "Lorem" },
 						  { "_id": "2", "name": "Post 2", "websiteId": "4", "title": "Lorem" },
 						  { "_id": "3", "name": "Post 3", "websiteId": "4", "title": "Lorem" }
 						];
