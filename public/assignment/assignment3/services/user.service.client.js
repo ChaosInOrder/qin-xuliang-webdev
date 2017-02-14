@@ -7,7 +7,7 @@
                 {_id: "1", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
                 {_id: "2", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
                 {_id: "3", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-                {_id: "4", username: "qin", password: "qin", firstName: "666",   lastName: "888" }
+                {_id: "4", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
             ];
 			var api={
 		            "createUser": createUser,

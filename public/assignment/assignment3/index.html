@@ -15,18 +15,18 @@
 	<script src="app.js"></script>
 	<script src="config.js"></script>
 
+	<script src="views/user/user-config.js"></script>
 
-	<!--controller-->
-	<script src="views/user/user.controller.client.js"></script>
-    <script src="views/website/website.controller.client.js"></script>
-	<script src="views/page/page.controller.client.js"></script>
-    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+
+	<!--user-->
+	<script src="views/user/controllers/login.controller.client.js"></script>
+	<script src="views/user/controllers/register.controller.client.js"></script>
+	<script src="views/user/controllers/profile.controller.client.js"></script>
+	<script src="services/user.service.client.js"></script>
+
 
 	<!-- service-->
-	<script src="services/user.service.client.js"></script>
-    <script src="services/website.service.client.js"></script>
-	<script src="services/page.service.client.js"></script>
-    <script src="services/widget.service.client.js"></script>
+
 </head>
 <body>
 	<div ng-view></div>
