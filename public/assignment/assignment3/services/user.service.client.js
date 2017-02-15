@@ -39,7 +39,7 @@
 			function findUserByUsername(username){
                 for(var i in users){
                     if (users[i].username==username)
-                        return users[i];
+                        return angular.copy(users[i]);
 
                 }
                 return null;

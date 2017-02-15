@@ -37,7 +37,7 @@
 			function findPageById(pageId){
 				for(var i in pages){
 					if(pages[i]._id==pageId)
-                    {return pages[i];}
+						return angular.copy(pages[i]);
 				}
 				return null;
 			}
@@ -46,7 +46,7 @@
 				for(var i in pages)
 					if(pages[i]._id==pageId)
 					{
-						pages[i].naem=page.name;
+						pages[i].name=page.name;
 						pages[i].title=page.title;
 					}
 			}
