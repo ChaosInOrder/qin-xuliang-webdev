@@ -4,15 +4,15 @@
         .factory("WidgetService",WidgetService);
     function WidgetService() {
         var widgets = [
-            { "_id": "1", "widgetType": "HEADING", "pageId": "1", "size": 2, "text": "Venus Smiled, With a Mysterious Wave Across Its Atmosphere"},
-            { "_id": "2", "widgetType": "HEADING", "pageId": "1", "size": 4, "text": "Venus"},
+            { "_id": "1", "widgetType": "HEADING", "pageId": "1", "size": 2, "text": "GIZMODO"},
+            { "_id": "2", "widgetType": "HEADING", "pageId": "1", "size": 4, "text": "Lorem ipsum"},
             { "_id": "3", "widgetType": "IMAGE", "pageId": "1", "width": "100%",
-                "url": "https://static01.nyt.com/images/2017/01/17/science/17tb-venus01/17tb-venus01-master768.jpg"},
-            { "_id": "4", "widgetType": "HTML", "pageId": "1", "text": "<p>Venus</p>"},
+                "url": "http://lorempixel.com/400/200/"},
+            { "_id": "4", "widgetType": "HTML", "pageId": "1", "text": "<p>Lorem ipsum</p>"},
             { "_id": "5", "widgetType": "HEADING", "pageId": "1", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "6", "widgetType": "YOUTUBE", "pageId": "1", "width": "100%",
-                "url": "https://www.youtube.com/embed/14gsV5fkhFU "},
-            { "_id": "7", "widgetType": "HTML", "pageId": "1", "text": "<p>Venus</p>"}
+            { "_id": "6", "widgetType": "YOUTUBE", "pageId": "1", "width": "100%","height":"600px",
+                "url": "https://youtu.be/AM2Ivdi9c4E" },
+            { "_id": "7", "widgetType": "HTML", "pageId": "1", "text": "<p>Lorem ipsum</p>"}
         ];
         var api = {
             "createWidget": createWidget,

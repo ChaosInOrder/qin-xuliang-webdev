@@ -25,19 +25,29 @@
 
 
 
-        <div class="container" >
-            <div class="content" ng-repeat="widget in widgets">
-                <div class="right-up">  
-                    <button type="button" class="btn btn-default">
+        <div class="container-fluid" >
+            <div ng-repeat="widget in model.widgets">
+                <!--<div class="right-up">-->
+                    <!--<button type="button" class="btn btn-default">-->
+                        <!--<a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">-->
+                            <!--<span class="glyphicon glyphicon-cog"></span>-->
+                        <!--</a>-->
+                    <!--</button>-->
+                    <!--<button type="button" class="btn btn-default">-->
+                        <!--<span class="glyphicon glyphicon-align-justify"></span></a>-->
+                    <!--</button>-->
+                <!--</div>-->
+            <div class="content" ng-switch="widget.widgetType">
+                <div class="right-up">
+                    <button type="button" class="btn btn-default btn-sm">
                         <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </button>
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default btn-sm">
                         <span class="glyphicon glyphicon-align-justify"></span></a>
                     </button>
                 </div>
-            <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING" ng-switch="widget.size">
                     <h1 ng-switch-when="1">{{widget.text}}</h1>
                     <h2 ng-switch-when="2">{{widget.text}}</h2>
@@ -46,11 +56,44 @@
                     <h5 ng-switch-when="5">{{widget.text}}</h5>
                     <h6 ng-switch-when="6">{{widget.text}}</h6>
                 </div>
-                <div ng-switch-when="IMAGE">
+
+
+
+                <div ng-switch-when="IMAGE" class="content">
+                    <div class="right-up">
+                        <button type="button" class="btn btn-default btn-sm">
+                            <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-align-justify"></span></a>
+                        </button>
+                    </div>
                     <img ng-src="{{widget.url}}" width="{{widget.width}}">
                 </div>
-                <div ng-switch-when="YOUTUBE">
-                    <iframe ng-src="{{model.doYouTrustUrl(widget.url)}}" width="{{widget.width}}"/>
+
+                <div class="content" ng-switch-when="HTML" ng-bind-html="model.getTrustedHtml(widget.text)">
+                    <a class="glyphicon glyphicon-align-justify list"></a>
+
+                    <a class="glyphicon glyphicon-cog list"
+                       href="#/user/{{model.uid}}/websites/{{model.wid}}/pages/{{model.pid}}/widgets/{{widget._id}}">
+
+                    </a>
+                </div>
+
+                <div class="content" ng-switch-when="YOUTUBE">
+                    <div class="right-up">
+                        <button type="button" class="btn btn-default btn-sm">
+                            <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </a>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-align-justify"></span></a>
+                        </button>
+                    </div>
+                    <iframe ng-src="{{model.getYouTubeEmbedUrl(widget.url)}}" width="{{widget.width}}" height="{{widget.height}}"/>
                 </div>
             </div>
             </div>

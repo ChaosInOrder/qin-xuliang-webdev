@@ -9,7 +9,6 @@
         var vm=this;
 
         //Get information from route
-        vm.widgetId=$routeParams.witid;
         vm.pageId=$routeParams.pid;
         vm.websiteId=$routeParams.wid;
         vm.userId=$routeParams.uid;
@@ -20,7 +19,7 @@
 
         function init() {
             vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
-            console.log(1)
+            console.log("widget-controller!");
 
             //display(vm.widgets);
         }
