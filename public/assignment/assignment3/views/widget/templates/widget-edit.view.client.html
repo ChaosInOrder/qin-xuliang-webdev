@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+    <div class="container-fluid">
+        <div class="navbar-header" id="nav-header">
+            <p class="navbar-text pull-left">
+                <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" id="navbar-back">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </p>
+            <a class="navbar-brand">
+                <label> Widgets</label>
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right margin-right-15" id="nav-plus">
+            <li>
+                <a ng-click="model.updateWidget()" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div ng-include="model.getEditorTemplateUrl(model.widget.widgetType)"></div>
+    <a ng-click="model.deleteWidget()" class="btn btn-block btn-danger">Delete</a>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right" id="nav-user">
+            <li>
+                <a ng-href="#user/{{model.userId}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-user blue"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

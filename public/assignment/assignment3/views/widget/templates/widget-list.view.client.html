@@ -17,7 +17,7 @@
                 </a>
             </li>
         </ul>
-        
+
 
     </div>
 </nav>
@@ -39,7 +39,7 @@
                 <!--</div>-->
             <div ng-switch="widget.widgetType">
 
-                <div ng-switch-when="HEADING" class="content">
+                <div ng-switch-when="heading" class="content">
                     <div class="right-up">
                         <button type="button" class="btn btn-default btn-sm">
                             <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
@@ -55,7 +55,7 @@
 
 
 
-                <div ng-switch-when="HTML" class="content">
+                <div ng-switch-when="html" class="content">
                     <div class="right-up">
                         <button type="button" class="btn btn-default btn-sm">
                             <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
@@ -68,7 +68,7 @@
                     </div>
                     <ng-include src="'views/widget/templates/widget-html.view.client.html'"></ng-include>
                 </div>
-                <div ng-switch-when="IMAGE" class="content">
+                <div ng-switch-when="image" class="content">
                     <div class="right-up">
                         <button type="button" class="btn btn-default btn-sm">
                             <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
@@ -81,7 +81,7 @@
                     </div>
                     <ng-include src="'views/widget/templates/widget-image.view.client.html'"></ng-include>
                 </div>
-                <div ng-switch-when="YOUTUBE" class="content">
+                <div ng-switch-when="youtube" class="content">
                     <div class="right-up">
                         <button type="button" class="btn btn-default btn-sm">
                             <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">

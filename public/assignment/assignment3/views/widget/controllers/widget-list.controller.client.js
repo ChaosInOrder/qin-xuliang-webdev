@@ -19,7 +19,7 @@
 
         function init() {
             vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
-            console.log("widget-controller!");
+            // console.log("widget-controller!");
 
             //display(vm.widgets);
         }

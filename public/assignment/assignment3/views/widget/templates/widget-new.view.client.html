@@ -10,8 +10,6 @@
                     <label> Widgets</label>
             </a>       
         </div>
-        
-
     </div>
 </nav>
 
@@ -22,24 +20,20 @@
         <div class="form-group">
             <label for="type">Widget Type</label>
             <select ng-model="model.widget.widgetType" class="form-control" id="type">
-                <option value="HEADER">Header</option>
-                <option value="HTML">HTML</option>
+                <option value="HEADING">Heading</option>
                 <option value="IMAGE">Image</option>
                 <option value="YOUTUBE">Youtube</option>
             </select>
         </div>
         <div ng-switch="model.widget.widgetType">
-            <div ng-switch-when="HEADER">
-                <ng-include src="'views/widget/templates/editors/widget-HEADER-editor.view.client.html'"></ng-include>
-            </div>
-            <div ng-switch-when="HTML">
-                <ng-include src="'views/widget/templates/editors/widget-HTML-editor.view.client.html'"></ng-include>
+            <div ng-switch-when="HEADING">
+                <ng-include src="'views/widget/templates/editors/widget-heading-editor.view.client.html'"></ng-include>
             </div>
             <div ng-switch-when="IMAGE">
-                <ng-include src="'views/widget/templates/editors/widget-IMAGE-editor.view.client.html'"></ng-include>
+                <ng-include src="'views/widget/templates/editors/widget-image-editor.view.client.html'"></ng-include>
             </div>
             <div ng-switch-when="YOUTUBE">
-                <ng-include src="'views/widget/templates/editors/widget-YOUTUBE-editor.view.client.html'"></ng-include>
+                <ng-include src="'views/widget/templates/editors/widget-youtube-editor.view.client.html'"></ng-include>
             </div>
         </div>
     </form>

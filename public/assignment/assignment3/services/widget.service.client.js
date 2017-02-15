@@ -4,15 +4,15 @@
         .factory("WidgetService",WidgetService);
     function WidgetService() {
         var widgets = [
-            { "_id": "1", "widgetType": "HEADING", "pageId": "1", "size": 2, "text": "GIZMODO"},
-            { "_id": "2", "widgetType": "HEADING", "pageId": "1", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "3", "widgetType": "IMAGE", "pageId": "1", "width": "100%",
+            { "_id": "1", "widgetType": "heading", "pageId": "1", "size": 2, "text": "GIZMODO"},
+            { "_id": "2", "widgetType": "heading", "pageId": "1", "size": 4, "text": "Lorem ipsum"},
+            { "_id": "3", "widgetType": "image", "pageId": "1", "width": "100%",
                 "url": "http://lorempixel.com/400/200/"},
-            { "_id": "4", "widgetType": "HTML", "pageId": "1", "text": "<p>Lorem ipsum</p>"},
-            { "_id": "5", "widgetType": "HEADING", "pageId": "1", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "6", "widgetType": "YOUTUBE", "pageId": "1", "width": "100%","height":"600px",
+            { "_id": "4", "widgetType": "html", "pageId": "1", "text": "<p>Lorem ipsum</p>"},
+            { "_id": "5", "widgetType": "heading", "pageId": "1", "size": 4, "text": "Lorem ipsum"},
+            { "_id": "6", "widgetType": "youtube", "pageId": "1", "width": "100%","height":"600px",
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "7", "widgetType": "HTML", "pageId": "1", "text": "<p>Lorem ipsum</p>"}
+            { "_id": "7", "widgetType": "html", "pageId": "1", "text": "<p>Lorem ipsum</p>"}
         ];
         var api = {
             "createWidget": createWidget,
@@ -56,6 +56,7 @@
             for(var i in widgets){
                 if(widgets[i]._id=widgetId)
                     widgets[i]=widget;
+                return widget;
 
             }
 

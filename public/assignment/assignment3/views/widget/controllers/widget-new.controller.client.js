@@ -14,6 +14,7 @@
 
 
         function init() {
+            console.log("widget list controller!");
         }
 
         init();

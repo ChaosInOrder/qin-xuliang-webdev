@@ -16,11 +16,11 @@
 						controller: "NewWidgetController",
 						controllerAs: "model"
 					})
-                // .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
-                //     templateUrl: "views/widget/widget-edit.view.client.html",
-                //     controller: "EditWidgetController",
-                //     controllerAs: "model"
-                // });
+                .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
+                    templateUrl: "views/widget/templates/widget-edit.view.client.html",
+                    controller: "EditWidgetController",
+                    controllerAs: "model"
+                 });
 		}
 		
 })();
