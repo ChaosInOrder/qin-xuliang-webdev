@@ -2,8 +2,8 @@
     angular
         .module("WebAppMaker")
         .controller("WidgetListController", WidgetListController)
-       // .controller("NewWidgetController", NewWidgetController)
-       // .controller("EditWidgetController", EditWidgetController);
+    // .controller("NewWidgetController", NewWidgetController)
+    // .controller("EditWidgetController", EditWidgetController);
 
     function WidgetListController($routeParams,$sce,WidgetService) {
         var vm=this;
@@ -15,7 +15,7 @@
 
         vm.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         vm.getTrustedHtml = getTrustedHtml;
-        vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
+        //vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
 
         function init() {
             vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
@@ -25,10 +25,6 @@
         }
 
         init();
-        function getWidgetTemplateUrl(widgetType) {
-            var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
-            return url;
-        }
 
         function getTrustedHtml(html) {
             return $sce.trustAsHtml(html);

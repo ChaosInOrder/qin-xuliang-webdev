@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-text pull-left margin-left-15">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </p>
+            <a class="navbar-brand">
+                <strong>Widgets</strong>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <form>
+        <div class="form-group">
+            <label for="type">Widget Type</label>
+            <select ng-model="model.widget.widgetType" class="form-control" id="type">
+                <option value="HEADER">Header</option>
+                <option value="HTML">HTML</option>
+                <option value="IMAGE">Image</option>
+                <option value="YOUTUBE">Youtube</option>
+            </select>
+        </div>
+        <div ng-switch="model.widget.widgetType">
+            <div ng-switch-when="HEADER">
+                <ng-include src="'views/widget/editor/widget-HEADER-editor.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="HTML">
+                <ng-include src="'views/widget/editor/widget-HTML-editor.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'views/widget/editor/widget-IMAGE-editor.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'views/widget/editor/widget-YOUTUBE-editor.view.client.html'"></ng-include>
+            </div>
+        </div>
+    </form>
+    <a ng-click="model.createWidget(model.widget)" class="btn btn-block btn-success">Create</a>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
+                <span class="glyphicon glyphicon-user text-blue"></span>
+            </a>
+        </p>
+    </div>
+</nav>

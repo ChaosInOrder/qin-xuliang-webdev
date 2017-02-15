@@ -1,38 +1,35 @@
-(function () {
+(function() {
     angular
         .module("WebAppMaker")
         .controller("EditWidgetController", EditWidgetController);
 
-    function EditWidgetController($routeParams,$location,$window,WidgetService) {
-        var vm=this;
-
-        //Get information from route
-        vm.pageId=$routeParams.pid;
-        vm.websiteId=$routeParams.wid;
-        vm.userId=$routeParams.uid;
+    function EditWidgetController($routeParams, $location, WidgetService) {
+        var vm = this;
+        vm.userId = $routeParams.uid;
+        vm.websiteId = $routeParams.wid;
+        vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
 
         function init() {
-            vm.widget=WidgetService.findWidgetById(vm.widgetId);
-            console.log("widget-edit controller!");
-
+            vm.widget = WidgetService.findWidgetById(vm.widgetId);
         }
-
         init();
 
-        vm.getEditorTemplateUrl = function (str) {
-            return 'views/widget/templates/editors/widget-' + str + '-editor.view.client.html';
+        vm.getEditorTemplateUrl = function (type) {
+            return 'views/widget/editor/widget-' + type + '-editor.view.client.html';
         }
+
         vm.updateWidget = function () {
             WidgetService.updateWidget(vm.widgetId, vm.widget);
-            window.alert("Update Widget!");
+            alert("Widget updated!");
             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
 
         vm.deleteWidget = function () {
             WidgetService.deleteWidget(vm.widgetId);
-            window.alert("Delete Widget!");
+            alert("Widget deleted!");
             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }
+
 })();

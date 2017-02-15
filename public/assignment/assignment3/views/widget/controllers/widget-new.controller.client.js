@@ -1,28 +1,23 @@
-(function () {
+(function() {
     angular
         .module("WebAppMaker")
         .controller("NewWidgetController", NewWidgetController);
 
-    function NewWidgetController($routeParams,$location,$window,WidgetService) {
-        var vm=this;
-        vm.createWidget=createWidget;
-        //Get information from route
-        vm.pageId=$routeParams.pid;
-        vm.websiteId=$routeParams.wid;
-        vm.userId=$routeParams.uid;
+
+    function NewWidgetController($routeParams, $location, WidgetService) {
+        var vm = this;
+        vm.userId = $routeParams.uid;
+        vm.websiteId = $routeParams.wid;
+        vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
+        vm.widgetTypes = ["HEADER", "HTML", "IMAGE", "YOUTUBE"];
 
-
-        function init() {
-            console.log("widget list controller!");
-        }
-
-        init();
-
-        function createWidget(widget) {
-            vm.widget=WidgetService.createWidget(vm.pageId,widget);
-            window.alert("Create New Widget!");
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+        vm.createWidget = function () {
+            WidgetService.createWidget(vm.pageId, vm.widget);
+            alert("Widget created!");
+            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }
+
+
 })();
