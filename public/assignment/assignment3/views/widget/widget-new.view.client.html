@@ -15,13 +15,13 @@
 <div class="container">
     <div ng-switch="model.widgetType">
         <div ng-switch-when="HEADER">
-            <ng-include src="'views/widget/widget-heading.view.client.html'"></ng-include>
+            <ng-include src="'./views/widget/editors/widget-heading-editor.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="IMAGE">
-            <ng-include src="'views/widget/widget-image.view.client.html'"></ng-include>
+            <ng-include src="'./views/widget/editors/widget-image-editor.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="YOUTUBE">
-            <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
+            <ng-include src="'./views/widget/editors/widget-youtube-editor.view.client.html'"></ng-include>
         </div>
     </div>
     <a ng-click="model.createWidget(model.widget)" class="btn btn-block btn-success">Create</a>
