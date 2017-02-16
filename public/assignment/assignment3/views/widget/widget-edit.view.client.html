@@ -26,13 +26,16 @@
     <div ng-switch="model.widget.widgetType"
          class="container-fluid">
         <div ng-switch-when="HEADER">
-            <ng-include src="'./views/widget/widget-heading.view.client.html'"></ng-include>
+            <ng-include src="'./views/widget/editors/widget-heading-editor.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="IMAGE">
-            <ng-include src="'./views/widget/widget-image.view.client.html'"></ng-include>
+            <ng-include src="'./views/widget/editors/widget-image-editor.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="YOUTUBE">
-            <ng-include src="'./views/widget/widget-youtube.view.client.html'"></ng-include>
+            <ng-include src="'./views/widget/editors/widget-youtube-editor.view.client.html'"></ng-include>
+        </div>
+        <div ng-switch-when="HTML">
+            <h2>HTML LINK, JUST CAN BE DELETE!</h2>
         </div>
     <a ng-click="model.deleteWidget()" class="btn btn-block btn-danger">Delete</a>
 </div>

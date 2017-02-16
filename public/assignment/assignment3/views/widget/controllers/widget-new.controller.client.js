@@ -10,14 +10,17 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
-        vm.widgetTypes = ["HEADER", "HTML", "IMAGE", "YOUTUBE"];
+        vm.widgetType=$routeParams.wtp;
 
-        vm.createWidget = function () {
-            WidgetService.createWidget(vm.pageId, vm.widget);
+        vm.createWidget = createWidget;
+
+
+
+        function createWidget(widget){
+            WidgetService.createWidget(vm.pageId, widget,vm.widgetType);
             alert("Widget created!");
             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
         }
     }
-
 
 })();
