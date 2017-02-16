@@ -76,7 +76,7 @@
                         <span class="glyphicon glyphicon-align-justify"></span></a>
                     </button>
                 </div>
-                <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
+                <iframe width="{{widget.width}}" height="500px" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -84,12 +84,10 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <ul class="nav navbar-nav navbar-right" id="nav-user">
-            <li>
-                <a ng-href="#user/{{model.userId}}" class="navbar-link">
-                    <span class="glyphicon glyphicon-user blue"></span>
-                </a>
-            </li>
-        </ul>
+        <p class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
+                <span class="glyphicon glyphicon-user text-blue"></span>
+            </a>
+        </p>
     </div>
 </nav>

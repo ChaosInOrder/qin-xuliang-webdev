@@ -23,8 +23,19 @@
 </nav>
 
 <div class="container-fluid">
-    <div ng-include="model.getEditorTemplateUrl(model.widget.widgetType)"></div>
+    <div ng-switch="model.widget.widgetType"
+         class="container-fluid">
+        <div ng-switch-when="heading">
+            <ng-include src="'./views/widget/widget-heading.view.client.html'"></ng-include>
+        </div>
+        <div ng-switch-when="image">
+            <ng-include src="'./views/widget/widget-image.view.client.html'"></ng-include>
+        </div>
+        <div ng-switch-when="YOUTUBE">
+            <ng-include src="'./views/widget/widget-youtube.view.client.html'"></ng-include>
+        </div>
     <a ng-click="model.deleteWidget()" class="btn btn-block btn-danger">Delete</a>
+</div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
