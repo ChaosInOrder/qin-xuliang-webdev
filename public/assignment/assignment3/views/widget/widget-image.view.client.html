@@ -1,1 +1,26 @@
-<img ng-src="{{widget.url}}" width="{{widget.width}}"/>
+<form role="form">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input ng-model="model.widget.name" type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="Changetitle">Text</label>
+        <input type="text" class="form-control"  id="Changetitle">
+    </div>
+    <div class="form-group">
+        <label for="changeurl">URL</label>
+        <input ng-model="model.widget.url" type="text" class="form-control" id="changeurl">
+
+    </div>
+    <div class="form-group">
+        <label for="changewidth">Width</label>
+        <select ng-model="model.widget.width" class="form-control" id="changewidth">
+            <option value ="width">100%</option>
+            <option value="75%">75%</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Upload</label>
+        <input type="file" class="form-control">
+    </div>
+</form>

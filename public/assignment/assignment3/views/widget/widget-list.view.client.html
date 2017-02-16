@@ -37,7 +37,14 @@
                         <span class="glyphicon glyphicon-align-justify"></span></a>
                     </button>
                 </div>
-            <ng-include src="'views/widget/widget-heading.view.client.html'"></ng-include>
+                <div ng-switch="widget.size">
+                    <h1 ng-switch-when="1">{{widget.text}}</h1>
+                    <h2 ng-switch-when="2">{{widget.text}}</h2>
+                    <h3 ng-switch-when="3">{{widget.text}}</h3>
+                    <h4 ng-switch-when="4">{{widget.text}}</h4>
+                    <h5 ng-switch-when="5">{{widget.text}}</h5>
+                    <h6 ng-switch-when="6">{{widget.text}}</h6>
+                </div>
         </div>
             <div ng-switch-when="HTML" class="content">
                 <div class="right-up">
@@ -50,7 +57,7 @@
                         <span class="glyphicon glyphicon-align-justify"></span></a>
                     </button>
                 </div>
-                <ng-include src="'views/widget/widget-html.view.client.html'"></ng-include>
+                <div ng-bind-html="model.getTrustedHtml(widget.text)"></div>
             </div>
             <div ng-switch-when="IMAGE" class="content">
                 <div class="right-up">
@@ -63,7 +70,7 @@
                         <span class="glyphicon glyphicon-align-justify"></span></a>
                     </button>
                 </div>
-                <ng-include src="'views/widget/widget-image.view.client.html'"></ng-include>
+                <img ng-src="{{widget.url}}" width="{{widget.width}}"/>
             </div>
             <div ng-switch-when="YOUTUBE" class="content">
                 <div class="right-up">
