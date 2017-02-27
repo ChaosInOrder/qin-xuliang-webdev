@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Login</h1>
+    <label for="username">Username</label>
+    <input ng-model="model.user.username"
+           class="form-control"
+           type="text"
+           id="username"
+           placeholder="username"/>
+    <label for="password">Password</label>
+
+    <input ng-model="model.user.password"
+           class="form-control"
+           type="password"
+           id="password"
+           placeholder="Password"/>
+
+    <a class="btn btn-primary btn-block"
+       ng-click="model.login(model.user)">Login</a>
+    <a class="btn btn-success btn-block"
+       href="#/register">Register</a>
+</div>

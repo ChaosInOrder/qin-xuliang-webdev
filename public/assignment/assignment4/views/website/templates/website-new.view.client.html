@@ -1,0 +1,89 @@
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-blue" role="navigation">
+    <table class="width100">
+        <tr>
+            <td class="width33" >
+                <div class="container-fluid pc-display" >
+                    <div class="navbar-header" id="nav-header">
+                        <p class="navbar-text pull-left">
+                            <a  ng-href="#/user/{{model.userId}}/website" class="navbar-link" id="navbar-back">
+                                <span class="glyphicon glyphicon-chevron-left white"></span>
+                            </a>
+                        </p>
+                        <a class="navbar-brand" id="white">
+                            Websites
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right" id="nav-plus">
+                        <li>
+                            <a ng-href="#/user/{{model.userId}}/website/new" class="navbar-link">
+                                <span class="glyphicon glyphicon-plus white"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            <td class="width66">
+                <div class="container-fluid">
+                    <div class="navbar-header" id="nav-header">
+                        <p class="navbar-text pull-left" id="phone-display">
+                            <a ng-href="#/user/{{model.userId}}/website" class="navbar-link" id="navbar-back">
+                                <span class="glyphicon glyphicon-chevron-left white"></span>
+                            </a>
+                        </p>
+                        <a class="navbar-brand" id="white">
+                            New Website
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right" id="nav-plus">
+                        <li>
+                            <a ng-click="model.createWebsite(model.website)" class="navbar-link">
+                                <span class="glyphicon glyphicon-ok white"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </div>
+</nav>
+
+<div id="base" class="container-fluid">
+    <div id="left" class="container-fluid pc-display width33">
+            <dl>
+                <dt ng-repeat="website in model.websites">
+                    <a ng-href="#/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                    <a class="pull-right" ng-href="#/user/{{model.userId}}/website/{{website._id}}">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                </dt>
+            </dl>
+    </div>
+
+
+    <div class="container-fluid width66" id="right">
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" ng-model="model.website.name">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="6" placeholder="Description" ng-model="model.website.description"></textarea>
+            </div>
+        </form>
+    </div>
+
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-blue">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right" id="nav-user">
+            <li>
+                <a ng-href="#/user/{{model.user._id}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-user white"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
