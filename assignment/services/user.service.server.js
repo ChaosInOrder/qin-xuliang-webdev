@@ -1,7 +1,7 @@
 module.exports = function(app){
 		app.get("/api/user",findUser);
 		app.get("/api/user/:userId",findUserById);
-		//app.put("/api/user/:userId",updateUser);
+		app.put("/api/user/:userId",updateUser);
 		//app.delete();
 		var users = [
 			{_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -61,5 +61,17 @@ module.exports = function(app){
 
         }
 
+        function updateUser(req,res){
+            var userId=req.params.userId;
+            var newUser=req.body;
+            console.log("User server Service updateUser.");
+            for(var i in users){
+                if(users[i]._id==userId){
+                    users[i].firstName=newUser.firstName;
+                    users[i].lastName=newUser.lastName;
+                    res.json(users[i]);
+                }
+            }
+        }
 
 }

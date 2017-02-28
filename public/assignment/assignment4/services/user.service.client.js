@@ -36,7 +36,7 @@
                 return $http.get("/api/user?username="+username+"&password="+password);
             }
 
-			function updateUser(userId,user){
+			function updateUser(userId,newUser){
                 return $http.put("/api/user/"+userId, newUser);
 			}
 
