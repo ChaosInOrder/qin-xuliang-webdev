@@ -12,17 +12,17 @@
         init();
 
         function login(user) {
-            if(user.username==null || user.password==null){
-                $window.alert("Please input username and password!")
-            }
-            var user = UserService.findUserByCredentials(user.username,user.password);
+            var promise=UserService.
+                findUserByCredentials(user.username,user.password);
 
-            if (user) {
-                $location.url("/user/" + user._id);
-            } else {
-                console.log("Don't have that user!");
-                $window.alert("User doesn't exist!");
-            }
+            promise.success(function(user){
+                if(user) {
+                    $location.url("/user/"+user._id);
+                } else {
+                    $window.alert("User doesn't exist!");
+                }
+            });
+
         }
     }
 
