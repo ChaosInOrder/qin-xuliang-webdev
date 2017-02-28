@@ -15,6 +15,8 @@
 
 
 			function createUser(user){
+			    console.log("createUser client server!")
+			    return $http.post("/api/user",user);
 			}
 
 			function findUserById(userId){

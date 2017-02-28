@@ -13,17 +13,21 @@
         init();
 
         function register(user) {
-            if (user.password != user.passwordCheck) {
-                $window.alert("Password does not match, please re-enter!");
-            } else {
-                var newUser = {_id:"", username:"", password:""};
-                newUser.username = user.username;
-                newUser.password = user.password;
-                newUser = UserService.createUser(newUser);
-                if (newUser) {
-                    $location.url("/user/"+newUser._id);
-                }
-            }
+            UserService
+                .findUserByUsername(user.username)
+                .success(function (user) {
+                    $window.alert( "That username is already taken");
+                })
+                .error(function() {
+                    UserService
+                        .createUser(user)
+                        .success(function(user){
+                            $location.url('/user/' + user._id);
+                        })
+                        .error(function () {
+                            $window.alert("sorry could not register");
+                        });
+                });
         }
     }
 })();

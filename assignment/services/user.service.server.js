@@ -2,7 +2,8 @@ module.exports = function(app){
 		app.get("/api/user",findUser);
 		app.get("/api/user/:userId",findUserById);
 		app.put("/api/user/:userId",updateUser);
-		//app.delete();
+		//app.delete("/api/user/:userId",deleteUser);
+        app.post("/api/user",createUser);
 		var users = [
 			{_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
 			{_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
@@ -28,7 +29,7 @@ module.exports = function(app){
             if(username && password){
                 findUserByCredentials(req,res);
             }
-            else if(user){
+            else if(username){
                 findUserByUsername(req,res);
             }
         }
@@ -73,5 +74,14 @@ module.exports = function(app){
                 }
             }
         }
+
+    function createUser(req,res){
+        var user=req.body;
+
+        console.log("User server Service createUser.");
+        user._id=(new Date()).getTime() + "";
+        users.push(user);
+        res.json(user);
+    }
 
 }
