@@ -1,6 +1,6 @@
 module.exports = function(app){
 		app.get("/api/user",findUser);
-		//app.get("/api/user/:userId",findUserById);
+		app.get("/api/user/:userId",findUserById);
 		//app.put("/api/user/:userId",updateUser);
 		//app.delete();
 		var users = [
@@ -10,8 +10,19 @@ module.exports = function(app){
 			{_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
 		];
 
+        function findUserById(req,res){
+            console.log("findUserById sever service")
+            var userId=req.params.userId;
+
+            var user = users.find(function(user){
+                return user._id == userId;
+            });
+            console.log(user);
+            res.json(user);
+        }
+
         function findUser(req,res){
-            console.log("Find user service")
+            console.log("findUser sever service")
             var username=req.query.username;
             var password=req.query.password;
             if(username && password){

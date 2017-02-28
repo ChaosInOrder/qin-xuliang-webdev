@@ -6,19 +6,31 @@
     function ProfileController($routeParams, $window,UserService) {
         var vm = this;
         vm.updateProfile = updateProfile;
-        vm.userId = $routeParams["uid"];
+        var userId = $routeParams["uid"];
 
         function init() {
-            vm.user = UserService.findUserById(vm.userId);
+            var promise= UserService.findUserById(userId);
             console.log(vm.user);
+            promise.success(function (user) {
+                vm.user=user;
+            });
         }
 
         init();
 
         function updateProfile(user) {
-            var newUser = UserService.updateUser(vm.userId, user);
+            UserService
+                .updateUser(userId, user)
+                .success(function(user){
+                    if(user!=null){
+                        $window.alert("Profile update!");
+                    }
+                    else{
+                        $window.alert("Unable to update user!")
 
-                $window.alert("Profile update!");
+                    }
+            });
+
 
         }
     }
