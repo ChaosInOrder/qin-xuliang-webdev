@@ -3,14 +3,14 @@
         .module("WebAppMaker")
         .controller("ProfileController", ProfileController);
 
-    function ProfileController($routeParams, $window,UserService) {
+    function ProfileController($routeParams,$location, $window,UserService) {
         var vm = this;
         vm.updateProfile = updateProfile;
+        vm.deleteUser=deleteUser;
         var userId = $routeParams["uid"];
 
         function init() {
             var promise= UserService.findUserById(userId);
-            console.log(vm.user);
             promise.success(function (user) {
                 vm.user=user;
             });
@@ -31,6 +31,23 @@
                     }
             });
 
+
+        }
+
+        function deleteUser(user) {
+            var answer = confirm("Are you sure?");
+            console.log(answer);
+            if(answer) {
+                UserService
+                    .deleteUser(user._id)
+                    .success(function () {
+                        console.log("Delete user!")
+                        $location.url("/login");
+                    })
+                    .error(function () {
+                        $window.alert('unable to remove user');
+                    });
+            }
 
         }
     }

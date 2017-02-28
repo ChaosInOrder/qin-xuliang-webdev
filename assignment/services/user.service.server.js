@@ -2,7 +2,7 @@ module.exports = function(app){
 		app.get("/api/user",findUser);
 		app.get("/api/user/:userId",findUserById);
 		app.put("/api/user/:userId",updateUser);
-		//app.delete("/api/user/:userId",deleteUser);
+		app.delete("/api/user/:userId",deleteUser);
         app.post("/api/user",createUser);
 		var users = [
 			{_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -82,6 +82,19 @@ module.exports = function(app){
         user._id=(new Date()).getTime() + "";
         users.push(user);
         res.json(user);
+    }
+
+    function deleteUser(req,res) {
+        var userId=req.params.userId;
+        for(var i in users){
+            if(users[i]._id==userId){
+                users.splice(i,1);
+                res.sendStatus(200);
+                return;
+            }
+        }
+        res.sendStatus(404);
+
     }
 
 }
