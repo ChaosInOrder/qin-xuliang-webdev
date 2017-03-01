@@ -1,0 +1,11 @@
+<div class="right-up">
+    <button type="button" class="btn btn-default btn-xs">
+        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+    </button>
+    <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-align-justify"></span></a>
+    </button>
+    </div>
+<iframe width="{{widget.width}}" height="500px" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>

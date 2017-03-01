@@ -27,63 +27,16 @@
 
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADER" class="content">
-                <div class="right-up">
-                    <button type="button" class="btn btn-default btn-xs">
-                        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </button>
-                    <button type="button" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-align-justify"></span></a>
-                    </button>
-                </div>
-                <div ng-switch="widget.size">
-                    <h1 ng-switch-when="1">{{widget.text}}</h1>
-                    <h2 ng-switch-when="2">{{widget.text}}</h2>
-                    <h3 ng-switch-when="3">{{widget.text}}</h3>
-                    <h4 ng-switch-when="4">{{widget.text}}</h4>
-                    <h5 ng-switch-when="5">{{widget.text}}</h5>
-                    <h6 ng-switch-when="6">{{widget.text}}</h6>
-                </div>
+                <ng-include src="'./views/widget/widgets/widget-heading.view.client.html'"></ng-include>
         </div>
             <div ng-switch-when="HTML" class="content">
-                <div class="right-up">
-                    <button type="button" class="btn btn-default btn-xs">
-                        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </button>
-                    <button type="button" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-align-justify"></span></a>
-                    </button>
-                </div>
-                <div ng-bind-html="model.getTrustedHtml(widget.text)"></div>
+                <ng-include src="'./views/widget/widgets/widget-html.view.client.html'"></ng-include>
             </div>
             <div ng-switch-when="IMAGE" class="content">
-                <div class="right-up">
-                    <button type="button" class="btn btn-default btn-xs">
-                        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </button>
-                    <button type="button" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-align-justify"></span></a>
-                    </button>
-                </div>
-                <img ng-src="{{widget.url}}" width="{{widget.width}}"/>
+                <ng-include src="'./views/widget/widgets/widget-image.view.client.html'"></ng-include>
             </div>
             <div ng-switch-when="YOUTUBE" class="content">
-                <div class="right-up">
-                    <button type="button" class="btn btn-default btn-xs">
-                        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </button>
-                    <button type="button" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-align-justify"></span></a>
-                    </button>
-                </div>
-                <iframe width="{{widget.width}}" height="500px" src="{{model.getYouTubeEmbedUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
+                <ng-include src="'./views/widget/widgets/widget-youtube.view.client.html'"></ng-include>
             </div>
         </div>
     </div>
