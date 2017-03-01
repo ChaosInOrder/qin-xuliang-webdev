@@ -24,12 +24,12 @@
         };
         return api;
 
-        function createWidget(pageId, widget,type) {
+        function createWidget(pageId,widget) {
             widget._id = widgets.length + 1;
             widget.pageId = pageId;
-            widget.widgetType=type;
             widgets.push(widget);
             console.log(widgets)
+            return widget;
         }
 
         function updateWidget(widgetId, widget) {
