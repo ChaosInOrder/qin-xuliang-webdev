@@ -56,11 +56,10 @@ module.exports = function(app){
 
     function deleteWebsite(req,res) {
         var websiteId=req.params.websiteId;
-
         for(var i in websites){
             if(websites[i]._id==websiteId){
                 websites.splice(i,1);
-                res.sendStatus(200);
+                res.json(200);
                 return;
             }
         }

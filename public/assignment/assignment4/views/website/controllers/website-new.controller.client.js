@@ -7,15 +7,13 @@
     function NewWebsiteController($routeParams, $window,$location,WebsiteService) {
         var vm = this;
         vm.createWebsite=createWebsite;
-        var userId = $routeParams["uid"];
+        vm.userId = $routeParams["uid"];
 
         function init() {
              WebsiteService
-                 .findAllWebsitesForUser(userId)
+                 .findAllWebsitesForUser(vm.userId)
                 .success(function (websites) {
                     vm.websites=websites;
-
-
             })
         }
         init();
@@ -23,7 +21,7 @@
 
         function createWebsite(website) {
             WebsiteService
-                .createWebsite(userId,website)
+                .createWebsite(vm.userId,website)
                 .success(function (website) {
                     $location.url("/user/"+website.developerId+"/website");
                     $window.alert("Create new website!");

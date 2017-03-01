@@ -14,22 +14,47 @@
 
 
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites=websites;
+                });
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .success(function (website) {
+                        vm.website=website;
+                    });
         }
         init();
 
         function updateWebsite(website) {
-            WebsiteService.updateWebsite(vm.websiteId, website);
-            $location.url("/user/"+vm.userId+"/website");
-            console.log(2)
-            $window.alert("Update Website Info!");
+            WebsiteService
+                .updateWebsite(vm.websiteId, website)
+                .success(function (website) {
+                    $location.url("/user/"+website.developerId+"/website/"+website._id);
+                    $window.alert("Update the website!");
+                })
+                .error(function (website) {
+                    $location.url("/user/"+website.developerId+"/website/"+website._id);
+                    $window.alert("Unable to change the website!");
+                });
+
         }
 
         function deleteWebsite() {
-            WebsiteService.deleteWebsite(vm.websiteId);
-            $location.url("/user/"+vm.userId+"/website");
-            $window.alert("Delete Website!");
+            var answer = confirm("Are you sure?");
+            console.log(answer);
+            if(answer) {
+                WebsiteService
+                    .deleteWebsite(vm.websiteId)
+                    .success(function () {
+                        $location.url("/user/"+vm.userId+"/website");
+                    })
+                    .error(function () {
+                        $window.alert("Unable to delete the website!");
+                    });
+            }
+
         }
 
     }
