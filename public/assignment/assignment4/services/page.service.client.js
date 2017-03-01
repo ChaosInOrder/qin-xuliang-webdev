@@ -2,15 +2,10 @@
 	angular
 		.module("WebAppMaker")
         .factory("PageService", PageService);
-		function PageService(){
-			var pages=[
-						  { "_id": "1", "name": "Sample", "websiteId": "4", "title": "Lorem" },
-						  { "_id": "2", "name": "Post 2", "websiteId": "4", "title": "Lorem" },
-						  { "_id": "3", "name": "Post 3", "websiteId": "4", "title": "Lorem" }
-						];
+		function PageService($http){
 			var api={
 			            "createPage": createPage,
-			            "findPageByWebsiteId": findPageByWebsiteId,
+			            "findAllPagesForWebsite": findAllPagesForWebsite,
 			            "findPageById": findPageById,
 			            "updatePage": updatePage,
 			            "deletePage": deletePage
@@ -19,43 +14,23 @@
 
 
 			function createPage(websiteId,page){
-                page._id=pages.length+1;
-                page.websiteId=websiteId;
-                pages.push(page);
-                return page;
+                return $http.post("/api/website/"+websiteId+"/page",page);
 			}
 
-			function findPageByWebsiteId(websiteId){
-				res=[]
-				for(var i in pages){
-					if(pages[i].websiteId==websiteId)
-                    {res.push(pages[i]);}
-				}
-				return res
+			function findAllPagesForWebsite(websiteId){
+				return $http.get("/api/website/"+websiteId+"/page");
 			}
 
 			function findPageById(pageId){
-				for(var i in pages){
-					if(pages[i]._id==pageId)
-						return angular.copy(pages[i]);
-				}
-				return null;
+				return $http.get("/api/page/"+pageId);
 			}
 
 			function updatePage(pageId,page){
-				for(var i in pages)
-					if(pages[i]._id==pageId)
-					{
-						pages[i].name=page.name;
-						pages[i].title=page.title;
-					}
+				return $http.put("/api/page/"+pageId,page)
 			}
 
 			function deletePage(pageId){
-				for(var i in pages){
-					if(pages[i]._id==pageId)
-                    {pages.splice(i,1)}
-				}
+				return $http.delete("/api/page/"+pageId);
 
 			}
 

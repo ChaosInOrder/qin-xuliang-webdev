@@ -24,11 +24,11 @@
                 .createWebsite(vm.userId,website)
                 .success(function (website) {
                     $location.url("/user/"+website.developerId+"/website");
-                    $window.alert("Create new website!");
+                    $window.alert("Create new website!")
                 })
                 .error(function () {
                     $window.alert("Unable to create website!");
-                })
+                });
 
 
         }

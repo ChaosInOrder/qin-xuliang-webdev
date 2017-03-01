@@ -10,14 +10,20 @@
         vm.pageId=$routeParams["pid"];
         vm.createPage=createPage;
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
         init();
 
         function createPage(page) {
-            PageService.createPage(vm.websiteId,page);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-            window.alert("Create New Page!");
+            PageService
+                .createPage(vm.websiteId,page)
+                .success(function (page) {
+                    $location.url("/user/"+vm.userId+"/website/"+page.websiteId+"/page");
+                    window.alert("Create New Page!");
+                })
+                .error(function () {
+                    $window.alert("Unable to create page!");
+                });
+
 
         }
 
