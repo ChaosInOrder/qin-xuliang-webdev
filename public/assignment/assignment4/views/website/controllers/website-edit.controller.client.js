@@ -39,6 +39,12 @@
                     $window.alert("Unable to change the website!");
                 });
 
+            WebsiteService
+                .findAllWebsitesForUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites=websites;
+                });
+
         }
 
         function deleteWebsite() {

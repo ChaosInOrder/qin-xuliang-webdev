@@ -18,7 +18,12 @@
         //vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
 
         function init() {
-            vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
+            var promise=WidgetService.findAllWidgetsForPage(vm.pageId);
+
+            promise.success(function (pages) {
+                vm.pages=pages
+
+            })
             // console.log("widget-controller!");
 
             //display(vm.widgets);
