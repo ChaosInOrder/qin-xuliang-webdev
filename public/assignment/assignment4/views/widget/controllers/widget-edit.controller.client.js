@@ -14,21 +14,41 @@
         vm.updateWidget=updateWidget;
         vm.deleteWidget=deleteWidget;
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            WidgetService
+                .findWidgetById(vm.widgetId)
+                .success(function (widget) {
+                    vm.widget=widget
+                });
         }
         init();
 
 
         function updateWidget() {
-            WidgetService.updateWidget(vm.widgetId, vm.widget);
-            window.alert("Update Widget");
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+            WidgetService
+                .updateWidget(vm.widgetId, vm.widget)
+                .success(function (widget) {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                    $window.alert("Update Widget");
+                })
+                .error(function () {
+                    $window.alert("Unable to update Widget");
+                })
+
         }
 
         function deleteWidget() {
-            WidgetService.deleteWidget(vm.widgetId);
-            window.alert("Delete Widget!");
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+            var answer = confirm("Are you sure?");
+            console.log(answer);
+            if(answer) {
+                WidgetService
+                    .deleteWidget(vm.widgetId)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                    })
+                    .error(function () {
+                        $window.alert("Unable to delete the widget!");
+                    });
+            }
         }
     }
 

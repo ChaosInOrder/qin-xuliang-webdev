@@ -28,7 +28,7 @@ module.exports=function (app) {
                 findWidgets.push(widgets[i]);
             }
         }
-        console.log(findWidgets);
+        //console.log(findWidgets);
         res.json(findWidgets);
     }
     function findWidgetById(req,res) {
@@ -50,7 +50,7 @@ module.exports=function (app) {
         for(var i in widgets){
             if(widgets[i]._id==widgetId){
                 widgets[i]=newWidget;
-                res.json(websites[i]);
+                res.json(widgets[i]);
             }
         }
     }
@@ -76,6 +76,7 @@ module.exports=function (app) {
         newWidget._id=(new Date()).getTime() + "";
         newWidget.pageId=pageId;
         widgets.push(newWidget);
+        console.log(widgets);
         res.json(newWidget);
 
     }

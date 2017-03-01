@@ -26,7 +26,7 @@
     <div ng-repeat="widget in model.widgets">
 
         <div ng-switch="widget.widgetType">
-            <div ng-switch-when="HEADER" class="content">
+            <div ng-switch-when="HEADING" class="content">
                 <ng-include src="'./views/widget/widgets/widget-heading.view.client.html'"></ng-include>
         </div>
             <div ng-switch-when="HTML" class="content">

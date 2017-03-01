@@ -4,7 +4,7 @@
         .controller("NewWidgetController", NewWidgetController);
 
 
-    function NewWidgetController($routeParams, $location, WidgetService) {
+    function NewWidgetController($routeParams, $location, WidgetService,$window) {
         var vm = this;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
@@ -28,9 +28,15 @@
                     break;
                 default:
             }
-            newWidget=WidgetService.createWidget(vm.pageId, newWidget);
-            alert("Widget created!");
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/"+newWidget._id);
+            WidgetService
+                .createWidget(vm.pageId, newWidget)
+                .success(function (newWidget) {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/"+newWidget._id);
+                    $window.alert("Create new widget!")
+                })
+                .error(function () {
+                    $window.alert("Unable to create widget!");
+                });
         }
     }
 
