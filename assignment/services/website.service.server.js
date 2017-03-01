@@ -69,10 +69,12 @@ module.exports = function(app){
 
     function createWebsite(req,res) {
         var newWebsite=req.body;
+        var userId=req.params.userId;
 
         console.log("Websites Sever Severice createWebsite!");
 
         newWebsite._id=(new Date()).getTime() + "";
+        newWebsite.developerId=userId;
         websites.push(newWebsite);
         res.json(newWebsite);
 
