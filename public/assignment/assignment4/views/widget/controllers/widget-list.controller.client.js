@@ -1,9 +1,7 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WidgetListController", WidgetListController)
-    // .controller("NewWidgetController", NewWidgetController)
-    // .controller("EditWidgetController", EditWidgetController);
+        .controller("WidgetListController", WidgetListController);
 
     function WidgetListController($routeParams,$sce,WidgetService) {
         var vm=this;
@@ -20,9 +18,8 @@
         function init() {
             var promise=WidgetService.findAllWidgetsForPage(vm.pageId);
 
-            promise.success(function (pages) {
-                vm.pages=pages
-
+            promise.success(function (widgets) {
+                vm.widgets=widgets;
             })
             // console.log("widget-controller!");
 
