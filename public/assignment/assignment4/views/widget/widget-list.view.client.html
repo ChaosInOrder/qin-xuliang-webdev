@@ -21,26 +21,9 @@
 
     </div>
 </nav>
+<!--<ng-include src="'./views/widget/sorted-widgets.view.client.html'"></ng-include>-->
 
-<div class="container-fluid">
-    <div ng-repeat="widget in model.widgets">
-
-        <div ng-switch="widget.widgetType">
-            <div ng-switch-when="HEADING" class="content">
-                <ng-include src="'./views/widget/widgets/widget-heading.view.client.html'"></ng-include>
-        </div>
-            <div ng-switch-when="HTML" class="content">
-                <ng-include src="'./views/widget/widgets/widget-html.view.client.html'"></ng-include>
-            </div>
-            <div ng-switch-when="IMAGE" class="content">
-                <ng-include src="'./views/widget/widgets/widget-image.view.client.html'"></ng-include>
-            </div>
-            <div ng-switch-when="YOUTUBE" class="content">
-                <ng-include src="'./views/widget/widgets/widget-youtube.view.client.html'"></ng-include>
-            </div>
-        </div>
-    </div>
-</div>
+<wbdv-sortable data="model" callback="model.sortWidgets(initial,final)">check</wbdv-sortable>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

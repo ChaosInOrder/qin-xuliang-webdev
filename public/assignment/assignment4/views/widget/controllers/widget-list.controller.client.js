@@ -11,6 +11,7 @@
         vm.websiteId=$routeParams.wid;
         vm.userId=$routeParams.uid;
 
+        vm.sortWidgets=sortWidgets;
         vm.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         vm.getTrustedHtml = getTrustedHtml;
         //vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
@@ -20,6 +21,7 @@
 
             promise.success(function (widgets) {
                 vm.widgets=widgets;
+                console.log("find widgets")
             })
             // console.log("widget-controller!");
 
@@ -27,6 +29,23 @@
         }
 
         init();
+
+        function sortWidgets(initial,final) {
+            console.log("sortWidgets controller");
+            WidgetService
+                .sortWidgets(vm.pageId,initial,final)
+                .success(function () {
+                    console.log("sort success!")
+                    console.log(initial)
+
+
+                })
+                .error(function () {
+                    console.log("sort fail");
+
+                })
+
+        }
 
         function getTrustedHtml(html) {
             return $sce.trustAsHtml(html);
@@ -46,5 +65,7 @@
         //     }
         //
         // }
+
+
     }
 })();
