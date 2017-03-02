@@ -14,31 +14,35 @@ module.exports=function (app) {
 
     var widgets=
         [
-        { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "0GIZMODO","index":0},
-        { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "1Lorem ipsum","index":1},
+        { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO","index":0},
+        { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum","index":1},
         { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
             "url": "http://lorempixel.com/400/200/","index":2},
         { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>2Lorem ipsum</p>","index":3},
-        { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "3Lorem ipsum","index":4},
+        { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum","index":4},
         { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
             "url": "https://youtu.be/AM2Ivdi9c4E" ,"index":5},
-        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>4Lorem ipsum</p>","index":6}
+        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>","index":6}
     ]
 
     function uploadImage(req, res) {
         console.log("uploadImage");
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
+        var widgetId = req.body.widgetId;
+        var path = "/uploads/" + req.file.filename;
 
-        var widgetId      = req.body.widgetId;
-        var width         = req.body.width;
-        var myFile        = req.file;
+        for (var i in widgets) {
+            if (widgets[i]._id == widgetId) {
+                widgets[i].url = path;
+                break;
+            }
+            }
 
-        var originalname  = myFile.originalname; // file name on user's computer
-        var filename      = myFile.filename;     // new file name in upload folder
-        var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
-        var size          = myFile.size;
-        var mimetype      = myFile.mimetype;
-        res.sendStatus(200);
+        var redirectURL = "/assignment/assignment4/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
+        res.redirect(redirectURL);
+
     }
     function findAllWidgetsForPage(req,res) {
         console.log("findAllWidgetsForPage widget sevser side");
@@ -80,14 +84,20 @@ module.exports=function (app) {
 
     function deleteWidget(req,res) {
         var widgetId=req.params.widgetId;
+
         for(var i in widgets){
             if(widgets[i]._id==widgetId){
+                var deletePageId=widgets[i].pageId;
+                var deleteWidgetIndex=widgets[i].index;
                 widgets.splice(i,1);
-                res.json(200);
-                return;
             }
         }
-        res.sendStatus(404);
+        for(var i in widgets){
+            if(widgets[i].pageId==deletePageId && widgets[i].index>deleteWidgetIndex){
+                widgets[i].index=widgets[i].index-1;
+            }
+        }
+        res.json(200);
     }
 
     function createWidget(req,res) {
@@ -139,7 +149,7 @@ module.exports=function (app) {
         res.sendStatus(200);
     }
 
-    
+
 
 
 
