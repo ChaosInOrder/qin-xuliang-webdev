@@ -20,7 +20,7 @@ module.exports=function () {
 
     var model={
         userModel: require("./user/user.model.server")(),
-        websiteModel: require("./website/website.schema.server")()
+        websiteModel: require("./website/website.model.server")()
     }
     return model;
 };
