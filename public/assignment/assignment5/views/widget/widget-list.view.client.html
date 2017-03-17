@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+    <div class="container-fluid">
+        <div class="navbar-header" id="nav-header">
+            <p class="navbar-text pull-left">
+                <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link" id="navbar-back">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </p>
+            <a class="navbar-brand">
+                <label> Widgets</label>
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right" id="nav-plus">
+            <li>
+                <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </li>
+        </ul>
+
+
+    </div>
+</nav>
+<!--<ng-include src="'./views/widget/sorted-widgets.view.client.html'"></ng-include>-->
+
+<wbdv-sortable data="model" callback="model.sortWidgets(initial,final)">check</wbdv-sortable>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}" class="navbar-link">
+                <span class="glyphicon glyphicon-user text-blue"></span>
+            </a>
+        </p>
+    </div>
+</nav>

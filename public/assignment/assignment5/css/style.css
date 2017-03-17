@@ -1,0 +1,119 @@
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 
+{ font-family: Times New Roman , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+
+input.form-control {
+    margin-bottom: 5px;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+@media(max-width: 767px){
+	#nav-header{
+		position: absolute;
+		left: 24px;
+	}
+	#nav-ok{
+		position: absolute;
+		right: 24px;
+	}
+	#nav-user{
+		position: absolute;
+		right: 24px;
+	}
+	#nav-plus{
+		position: absolute;
+		right: 24px;
+	}
+	.pc-display{
+		display: none;
+	}
+	#right{
+		margin: 0;
+		width: 100%
+	}
+}
+
+@media(min-width: 768px){
+	#phone-display{
+		display: none
+	}
+	#width{
+		width: 66%;
+	}
+	#right{
+	position: absolute;
+	right: 0;
+}
+}
+
+#base{
+	position: relative;
+}
+
+#left{
+	position: absolute;
+	left: 0;
+}
+
+.navbar-blue{
+	background-color: #337ab7;
+}
+#white{
+	color:white;
+}
+
+.white{
+	color:white;
+}
+
+.blue{
+	color: #337ab7;
+}
+.middle{
+	vertical-align: middle;
+}
+
+.content{
+	position: relative;
+}
+.right-up{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+ dt{
+ 	margin: 10px;
+ }
+
+.no-top-padding{
+	padding-top: 0px;
+}
+
+ .small-radio{
+ 	width: 10px;
+ 	height: 10px;
+ }
+
+
+ .width33{
+ 	width: 33%;
+ }
+
+ .width66{
+ 	width: 66%;
+ }
+
+  .width40{
+ 	width: 40%;
+ }
+
+   .width90{
+ 	width: 90%;
+ }
+    .width100{
+ 	width: 100%;
+ }
