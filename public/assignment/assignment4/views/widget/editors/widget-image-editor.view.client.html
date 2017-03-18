@@ -26,6 +26,6 @@
     <input  name="userId" value="{{model.userId}}"   style="display: none"/>
     <input  name="pageId" value="{{model.pageId}}"   style="display: none"/>
     <input  name="websiteId" value="{{model.websiteId}}"   style="..."/>
-    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+    <button ng-click="model.requestUploadFile(model.myFile)"   class="btn btn-block btn-primary">Upload Image</button>
 </form>
 <br>
