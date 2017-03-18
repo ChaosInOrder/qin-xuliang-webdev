@@ -53,6 +53,7 @@ module.exports=function (app) {
         var S3_BUCKET = process.env.S3_BUCKET_NAME;
 
         const fileName = req.query.fileName;
+        console.log(fileName);
         const fileType = req.query.fileType;
         const s3Params = {
             Bucket: S3_BUCKET,
@@ -71,6 +72,7 @@ module.exports=function (app) {
                 url: "https://"+S3_BUCKET+".s3.amazonaws.com/"+fileName
             };
             res.write(JSON.stringify(returnData));
+            console.log(returnData);
             res.end();
         });}
 
