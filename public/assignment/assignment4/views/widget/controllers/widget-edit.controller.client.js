@@ -9,7 +9,7 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
-
+        vm.uploadImage=uploadImage;
 
         vm.updateWidget=updateWidget;
         vm.deleteWidget=deleteWidget;
@@ -51,14 +51,21 @@
             }
         }
 
+        function uploadImage() {
+            console.log("request upload")
+            const file = vm.myFile;
+            console.log(file);
+            if (file == null) {
+                return alert('No file selected.');
+            }
+            getSignedRequest(file);
+        }
 
 
         // https://devcenter.heroku.com/articles/s3-upload-node
         function getSignedRequest(file) {
-            if (file==null){
-                return alert("No file upload!");
-            }
             const xhr = new XMLHttpRequest();
+            console.log(xhr)
             xhr.open('GET', "/api/sign-s3?fileName=" + file.name + "&fileType=" + file.type);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {

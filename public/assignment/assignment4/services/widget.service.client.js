@@ -39,7 +39,7 @@
 
         function sortWidgets(pageId,initial,final){
             console.log("sort client side");
-            return $http.put("/page/"+pageId+"/widget?initial="+initial+"&final="+final);
+            return $http.put("/api/page/"+pageId+"/widget?initial="+initial+"&final="+final);
         }
     }
 })();

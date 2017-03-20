@@ -1,15 +1,12 @@
 module.exports=function (app) {
 
-    var multer = require('multer'); // npm install multer --save
-    var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
     app.get("/api/widget/:widgetId",findWidgetById);
     app.put("/api/widget/:widgetId",updateWidget);
     app.delete("/api/widget/:widgetId",deleteWidget);
     app.post("/api/page/:pageId/widget",createWidget);
-    app.post ("/api/upload", upload.single('myFile'), uploadImage);
-    app.put("/page/:pageId/widget",sortWidgets);
+    app.put("/api/page/:pageId/widget",sortWidgets);
     app.get("/api/sign-s3", signS3);
 
 
@@ -26,28 +23,10 @@ module.exports=function (app) {
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>","index":6}
     ]
 
-    function uploadImage(req, res) {
-        console.log("uploadImage");
-        var userId = req.body.userId;
-        var websiteId = req.body.websiteId;
-        var pageId = req.body.pageId;
-        var widgetId = req.body.widgetId;
-        var path = "/uploads/" + req.file.filename;
-
-        for (var i in widgets) {
-            if (widgets[i]._id == widgetId) {
-                widgets[i].url = path;
-                break;
-            }
-            }
-
-        var redirectURL = "/assignment/assignment4/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
-        res.redirect(redirectURL);
-
-    }
 
 
     function signS3(req, res) {
+        console.log("s3 server")
         var aws = require('aws-sdk');
         var s3 = new aws.S3();
         var S3_BUCKET = process.env.S3_BUCKET_NAME;
