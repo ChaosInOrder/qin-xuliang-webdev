@@ -24,6 +24,7 @@ module.exports = function(app,model){
             console.log("findUser sever service")
             var username=req.query.username;
             var password=req.query.password;
+            console.log(password)
             if(username && password){
                 findUserByCredentials(req,res);
             }
@@ -68,7 +69,7 @@ module.exports = function(app,model){
                 .then(function (user) {
                     res.json(user);
                 },function (err) {
-                    res.send(500).send(404);
+                    res.sendStatus(500).sendStatus(404);
                 });
         }
 
@@ -79,6 +80,8 @@ module.exports = function(app,model){
             userModel
             .createUser(user)
             .then(function (user) {
+                console.log("sever createUser");
+                console.log(user);
                 res.json(user);
             },function (err) {
                 res.send(500).send(404);
@@ -90,14 +93,14 @@ module.exports = function(app,model){
 
         model.
             userModel
-            .deleteUser(userId)
-            .then(function () {
-                res.send(200);
-            },function (err) {
-                res.sendStatus(500).sendStatus(404);
-
-            });
-
+            .remove({_id: userId}, function (err, status) {
+            if(err) {
+                deferred.abort(err);
+            } else {
+                deferred.resolve(status);
+            }
+        });
+        return deferred.promise;
     }
 
 };

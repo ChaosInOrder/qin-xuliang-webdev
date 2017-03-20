@@ -13,21 +13,31 @@
         init();
 
         function register(user) {
-            UserService
-                .findUserByUsername(user.username)
-                .success(function (user) {
-                    $window.alert( "That username is already taken");
-                })
-                .error(function() {
-                    UserService
-                        .createUser(user)
-                        .success(function(user){
-                            $location.url('/user/' + user._id);
-                        })
-                        .error(function () {
-                            $window.alert("sorry could not register");
-                        });
-                });
+            if(user.password==user.passwordCheck)
+            {
+                UserService
+                    .findUserByUsername(user.username)
+                    .success(function (user) {
+                        $window.alert( "That username is already taken");
+                    })
+                    .error(function() {
+                        UserService
+                            .createUser(user)
+                            .success(function(user){
+                                console.log(user)
+                                console.log("Register controller, register");
+                                console.log(user._id);
+                                $location.url('/user/' + user._id);
+                            })
+                            .error(function () {
+                                $window.alert("sorry could not register");
+                            });
+                    });
+            }
+            else{
+                alert("The password doesn't match!");
+            }
+
         }
     }
 })();

@@ -62,16 +62,23 @@ module.exports = function(app,model){
         var newWebsite=req.body;
         var userId=req.params.userId;
 
-        console.log("Websites Sever Severice createWebsite!");
+        console.log("Websites Sever createWebsite!");
 
         model
             .websiteModel
             .createWebsiteForUser(userId,newWebsite)
-            .then(function (website) {
-                res.json(user);
-            },function (website) {
-                res.send(500).send(404);
-            });
+            .then(
+                function (website) {
+                    return model.userModel.addWebsite(userId,website);
+            })
+            .then(
+                function (status) {
+                    res.sendStatus(200);
+                },function (err) {
+                    res.sendStatus(500).sendStatus(404);
+
+                }
+            );
     }
 
 }

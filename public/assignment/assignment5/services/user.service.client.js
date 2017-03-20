@@ -15,7 +15,8 @@
 
 
 			function createUser(user){
-			    console.log("createUser client server!")
+			    console.log("createUser client server!");
+			    console.log(user);
 			    return $http.post("/api/user",user);
 			}
 
@@ -35,6 +36,7 @@
                 //     }
                 // }
                 // return null;
+				console.log(password)
                 return $http.get("/api/user?username="+username+"&password="+password);
             }
 

@@ -4,7 +4,7 @@
 module.exports=function () {
     var mongoose=require("mongoose");
     var websiteSchema=mongoose.Schema({
-        _user:{type:mongoose.Schema.Types.ObjectId,ref:"User"},
+        _user:{type:mongoose.Schema.Types.ObjectId,ref:"userModel"},
         name:{type:String,reuqired:true},
         description:String,
         pages:[],

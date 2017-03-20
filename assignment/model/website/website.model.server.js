@@ -18,11 +18,13 @@ module.exports=function () {
     return api;
 
     function createWebsiteForUser(userId,website) {
+        console.log("model createWebsiteForUser");
         var deferred=q.defer();
         website._user=userId
         websiteModel
             .create(website,function (err,website) {
                 if(err){
+                    console.log(err);
                     deferred.abort(err)
                 }
                 else {
@@ -72,14 +74,15 @@ module.exports=function () {
     
     function deleteWebsite(websiteId) {
         var deferred=q.defer();
-        websiteModel.remove({_id:websiteId},function (err) {
+        websiteModel.remove({_id:websiteId},function (err,status) {
             if(err){
                 deferred.abort(err);
             }
             else{
-                deferred.resolve();
+                deferred.resolve(status);
             }
 
         });
+        return deferred.promise;
     }
 }
