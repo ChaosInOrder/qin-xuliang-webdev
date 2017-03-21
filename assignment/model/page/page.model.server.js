@@ -36,7 +36,9 @@ module.exports=function () {
     function updatePage(pageId,page) {
         console.log("model page",page)
         delete page._id;
-        pageModel.update({_id:pageId},{$set:page});
+        pageModel.update({_id:pageId}, {$set: page},function (err) {
+            console.log(err)
+        })
         return pageModel.findOne({_id:pageId});
 
     }

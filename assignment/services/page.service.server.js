@@ -42,7 +42,7 @@ module.exports=function (app,model) {
         console.log("controller page",newPage)
         model.pageModel.updatePage(pageId,newPage)
             .then(function (page) {
-                console.log("call back page",page)
+                // console.log("call back page",page)
                 res.json(page);
             },function (err) {
                 res.sendStatus(500).send(err);
