@@ -16,8 +16,10 @@ module.exports=function () {
     }
 
     var mongoose = require("mongoose");
+    var Promise = require('bluebird');
     mongoose.createConnection(connectionString);
 
+    var options = { promiseLibrary: require('bluebird') };
     var model={
         userModel: require("./user/user.model.server")(),
         websiteModel: require("./website/website.model.server")()

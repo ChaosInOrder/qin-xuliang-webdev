@@ -24,9 +24,9 @@
                         UserService
                             .createUser(user)
                             .success(function(user){
-                                console.log(user)
-                                console.log("Register controller, register");
-                                console.log(user._id);
+                                // console.log(user)
+                                // console.log("Register controller, register");
+                                // console.log(user._id);
                                 $location.url('/user/' + user._id);
                             })
                             .error(function () {

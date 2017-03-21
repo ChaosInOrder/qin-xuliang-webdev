@@ -11,7 +11,7 @@ module.exports=function () {
         lastName:String,
         email:String,
         phone:String,
-        websites:[{type:mongoose.Schema.Types.ObjectId,ref:"websiteMode"}],
+        websites:[{type:mongoose.Schema.Types.ObjectId,ref:"website"}],
         dateCreated:{type:Date,default:Date.now()}
     },{collection:"user"});
     return UserSchema;

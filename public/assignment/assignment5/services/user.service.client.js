@@ -15,8 +15,8 @@
 
 
 			function createUser(user){
-			    console.log("createUser client server!");
-			    console.log(user);
+			    // console.log("createUser client server!");
+			    // console.log(user);
 			    return $http.post("/api/user",user);
 			}
 

@@ -8,9 +8,10 @@ module.exports = function(app,model){
         function findUserById(req,res){
             console.log("findUserById sever service")
             var userId=req.params.userId;
-
+            // console.log(userId);
             model.
-                userModel.findUserById(userId)
+                userModel
+                .findUserById(userId)
                 .then(
                     function (user) {
                         if (user){res.json(user);}
@@ -24,7 +25,7 @@ module.exports = function(app,model){
             console.log("findUser sever service")
             var username=req.query.username;
             var password=req.query.password;
-            console.log(password)
+            // console.log(password)
             if(username && password){
                 findUserByCredentials(req,res);
             }
@@ -75,13 +76,13 @@ module.exports = function(app,model){
 
     function createUser(req,res){
         var user=req.body;
-        console.log(user)
+        // console.log(user)
         model.
             userModel
             .createUser(user)
             .then(function (user) {
-                console.log("sever createUser");
-                console.log(user);
+                // console.log("sever createUser");
+                // console.log(user);
                 res.json(user);
             },function (err) {
                 res.send(500).send(404);
@@ -90,17 +91,26 @@ module.exports = function(app,model){
 
     function deleteUser(req,res) {
         var userId=req.params.userId;
-
         model.
             userModel
-            .remove({_id: userId}, function (err, status) {
-            if(err) {
-                deferred.abort(err);
-            } else {
-                deferred.resolve(status);
-            }
-        });
-        return deferred.promise;
+            .findUserById(userId)
+            .then(
+                function (user) {
+                    var promises=[]
+                    promises.push(model.websiteModel.removeWebsites(user.websites));
+                    promises.push(user.remove());
+                    return model.Promise.all(promises);
+                }
+            )
+            .then(function (status) {
+                res.sendStatus(200);
+
+            },function (err) {
+                res.sendStatus(500).send(err);
+
+            })
+
+
     }
 
 };

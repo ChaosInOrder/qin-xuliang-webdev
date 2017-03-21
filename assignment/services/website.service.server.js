@@ -8,12 +8,16 @@ module.exports = function(app,model){
     function findAllWebsitesForUser(req,res) {
         console.log("findAllWebsitesForUser website sevser side");
         var userId=req.params.userId;
-
+        console.log(userId)
         model
             .websiteModel
             .findAllWebsitesForUser(userId)
-            .then(function (findWebsites) {
-                res.json(findWebsites);
+            .then(function (Websites) {
+                console.log(Websites);
+                res.json(Websites);
+            },function (err) {
+                res.sendStatus(500).send(404);
+
             });
 
     }
@@ -26,6 +30,7 @@ module.exports = function(app,model){
             .websiteModel
             .findWebsiteById(websiteId)
             .then(function (website) {
+                console.log(website)
                 res.json(website);
             });
     }
@@ -38,11 +43,15 @@ module.exports = function(app,model){
         model
             .websiteModel
             .updateWebsite(websiteId,newWebsite)
-            .then(function (website) {
-                res.json(website);
-            },function (err) {
-                res.send(500).send(404);
-            });
+            .then(
+                function (website) {
+                    res.json(website);
+
+                },function (err) {
+                    res.sendStatus(500).send(err);
+
+                }
+            )
     }
 
     function deleteWebsite(req,res) {
@@ -50,8 +59,8 @@ module.exports = function(app,model){
         model.
         websiteModel
             .deleteWebsite(websiteId)
-            .then(function () {
-                res.send(200);
+            .then(function (status) {
+                res.send(status);
             },function (err) {
                 res.sendStatus(500).sendStatus(404);
 
@@ -69,16 +78,9 @@ module.exports = function(app,model){
             .createWebsiteForUser(userId,newWebsite)
             .then(
                 function (website) {
-                    return model.userModel.addWebsite(userId,website);
-            })
-            .then(
-                function (status) {
-                    res.sendStatus(200);
-                },function (err) {
-                    res.sendStatus(500).sendStatus(404);
-
-                }
-            );
+                    model.userModel.addWebsite(userId,website);
+                    res.json(website);
+            });
     }
 
 }
