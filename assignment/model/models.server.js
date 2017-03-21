@@ -22,7 +22,8 @@ module.exports=function () {
     var options = { promiseLibrary: require('bluebird') };
     var model={
         userModel: require("./user/user.model.server")(),
-        websiteModel: require("./website/website.model.server")()
+        websiteModel: require("./website/website.model.server")(),
+        pageModel:require("./page/page.model.server")()
     }
     return model;
 };

@@ -17,7 +17,7 @@
             PageService
                 .createPage(vm.websiteId,page)
                 .success(function (page) {
-                    $location.url("/user/"+vm.userId+"/website/"+page.websiteId+"/page");
+                    $location.url("/user/"+vm.userId+"/website/"+page._website+"/page");
                     window.alert("Create New Page!");
                 })
                 .error(function () {

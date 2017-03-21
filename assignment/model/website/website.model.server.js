@@ -12,16 +12,36 @@ module.exports=function () {
     var api={
         "createWebsiteForUser":createWebsiteForUser,
         "findAllWebsitesForUser":findAllWebsitesForUser,
-        "findWebsiteById":findWebsiteById,
         "updateWebsite":updateWebsite,
         "deleteWebsite":deleteWebsite,
-        "removeWebsites":removeWebsites
+        "findWebsiteById":findWebsiteById,
+        "removeWebsites":removeWebsites,
+        "addPage":addPage,
+        "deletePage":deletePage
     };
     return api;
 
+    function deletePage(websiteId,pageId) {
+        return websiteModel.findWebsiteById(websiteId,function (err,website) {
+            var index=website.pages.indexOf(pageId);
+            website.pages.splice(index,1);
+            website.save();
+        })
+    }
+    function addPage(websiteId,pageId) {
+        console.log("model addPage");
+        return websiteModel.findOne({_id:websiteId})
+            .then(function(website) {
+            // console.log(user)
+            website.pages.push(pageId);
+            console.log(website)
+            website.save();
+        });
+    }
+
     function removeWebsites(websites) {
         console.log(websites)
-        return websiteModel.remove({_id:{$in:websites}})
+        return websiteModel.remove({_id:  websites[0]})
 
     }
     function createWebsiteForUser(userId,website) {
@@ -56,45 +76,22 @@ module.exports=function () {
     }
 
     function findWebsiteById(websiteId) {
-        // var deferred=q.defer();
+        // console.log(websiteId)
         return websiteModel.findOne({_id:websiteId});
-        // ,function (err,website) {
-        //         if(err){
-        //             deferred.abort(err);
-        //         }else{
-        //             deferred.resolve(website)
-        //         }
-        //     });
-        // return deferred.promise;
     }
+
     function updateWebsite(websiteId,website) {
         delete website._id;
         // var deferred=q.defer();
-        websiteModel
-            .update({_id:websiteId}, {$set: website})
-
+        console.log("update website model",website)
+        websiteModel.update({_id:websiteId}, {$set: website},function (err) {
+            console.log(err)
+        })
         return websiteModel.findOne({_id:websiteId});
-        // ,function (err,website) {
-        //         if(err){deferred.abort(err)}
-        //         else{deferred.resolve(website)};
-        //
-        //     }
-        // );
-        // return deferred.promise;
     }
     
     function deleteWebsite(websiteId) {
         // var deferred=q.defer();
         return websiteModel.remove({_id:websiteId});
-        // ,function (err,status) {
-        //     if(err){
-        //         deferred.abort(err);
-        //     }
-        //     else{
-        //         deferred.resolve(status);
-        //     }
-        //
-        // });
-        // return deferred.promise;
     }
 }

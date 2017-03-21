@@ -45,6 +45,7 @@ module.exports = function(app,model){
             .updateWebsite(websiteId,newWebsite)
             .then(
                 function (website) {
+                    console.log("server side call back, update website",website)
                     res.json(website);
 
                 },function (err) {

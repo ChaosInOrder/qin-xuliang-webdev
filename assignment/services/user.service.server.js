@@ -93,22 +93,14 @@ module.exports = function(app,model){
         var userId=req.params.userId;
         model.
             userModel
-            .findUserById(userId)
-            .then(
-                function (user) {
-                    var promises=[]
-                    promises.push(model.websiteModel.removeWebsites(user.websites));
-                    promises.push(user.remove());
-                    return model.Promise.all(promises);
-                }
-            )
+            .deleteUser(userId)
             .then(function (status) {
                 res.sendStatus(200);
 
             },function (err) {
                 res.sendStatus(500).send(err);
 
-            })
+            });
 
 
     }

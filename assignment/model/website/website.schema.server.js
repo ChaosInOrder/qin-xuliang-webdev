@@ -7,7 +7,7 @@ module.exports=function () {
         _user:{type:mongoose.Schema.Types.ObjectId,ref:"user"},
         name:{type:String,reuqired:true},
         description:String,
-        pages:[],
+        pages:{type:mongoose.Schema.Types.ObjectId,ref:"page"},
         dateCreated:{type:Date,deafult:Date.now()}},
     {collection:"website"});
     return websiteSchema;

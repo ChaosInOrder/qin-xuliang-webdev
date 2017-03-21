@@ -22,37 +22,27 @@ module.exports=function () {
     return api;
 
     function deleteWebsite(userId,websiteId) {
-        // var deferred=q.defer();
         return userModel.findUserById(userId,function (err,user) {
                 var index=user.websites.indexOf(websiteId);
                 user.websites.splice(index,1);
                 user.save();
-                // deferred.resolve(user);
             })
-        // return deferred.promise;
     }
-    function addWebsite(userId,website) {
+    function addWebsite(userId,websiteId) {
         console.log("model addWebsite");
         return userModel.findById(userId,function (err,user) {
                     // console.log(user)
-                    user.websites.push(website);
+                    user.websites.push(websiteId);
                     user.save();
 
                 });
     }
     function createUser(user) {
-        // var deferred=q.defer();
-        // console.log("model create user");
-        // console.log(user);
         return userModel.create(user);
-        // console.log(deferred.promise);
-        // return deferred.promise;
     }
     
     function findUserById(userId) {
-        // var deferred=q.defer();
         return userModel.findOne({_id:userId});
-        // return deferred.promise;
         
     }
     function deleteUser(userId) {
