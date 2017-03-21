@@ -31,11 +31,14 @@
             WebsiteService
                 .updateWebsite(vm.websiteId, website)
                 .success(function (website) {
-                    $location.url("/user/"+website.developerId+"/website/"+website._id);
+                    console.log(1)
+                    console.log(website)
+                    $location.url("/user/"+website._user+"/website/"+website._id);
                     $window.alert("Update the website!");
                 })
                 .error(function (website) {
-                    $location.url("/user/"+website.developerId+"/website/"+website._id);
+                    console.log(website)
+                    $location.url("/user/"+website._user+"/website/"+website._id);
                     $window.alert("Unable to change the website!");
                 });
 

@@ -23,7 +23,8 @@
             WebsiteService
                 .createWebsite(vm.userId,website)
                 .success(function (website) {
-                    $location.url("/user/"+website.developerId+"/website");
+                    console.log("website")
+                    $location.url("/user/"+website._user+"/website");
                     $window.alert("Create new website!")
                 })
                 .error(function () {
