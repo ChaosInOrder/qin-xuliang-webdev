@@ -13,20 +13,26 @@ module.exports=function (app,model) {
 
 
     function uploadImage(req, res) {
+
         console.log("uploadImage");
         var userId = req.body.userId;
         var websiteId = req.body.websiteId;
         var pageId = req.body.pageId;
         var widgetId = req.body.widgetId;
-        var path = "/uploads/" + req.file.filename;
-
+        if(req.file !=undefined){
+            var path = "/uploads/" + req.file.filename;
         model.widgetModel.updateWidget(widgetId,{url:path})
             .then(function (widget) {
                 var redirectURL = "/assignment/assignment5/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
                 res.redirect(redirectURL);
             },function (err) {
-                res.sendStatus(500).send(404);
-            })
+                var redirectURL = "/assignment/assignment5/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
+                res.redirect(redirectURL);
+            })}
+            else{
+            var redirectURL = "/assignment/assignment5/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
+            res.redirect(redirectURL);
+        }
 
 
 
