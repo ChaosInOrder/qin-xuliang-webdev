@@ -12,8 +12,6 @@ module.exports=function (app,model) {
     app.put("/page/:pageId/widget",sortWidgets);
 
 
-
-
     function uploadImage(req, res) {
         console.log("uploadImage");
         var userId = req.body.userId;
@@ -22,15 +20,15 @@ module.exports=function (app,model) {
         var widgetId = req.body.widgetId;
         var path = "/uploads/" + req.file.filename;
 
-        for (var i in widgets) {
-            if (widgets[i]._id == widgetId) {
-                widgets[i].url = path;
-                break;
-            }
-            }
+        model.widgetModel.updateWidget(widgetId,{url:path})
+            .then(function (widget) {
+                var redirectURL = "/assignment/assignment5/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
+                res.redirect(redirectURL);
+            },function (err) {
+                res.sendStatus(500).send(err);
+            })
 
-        var redirectURL = "/assignment/assignment4/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
-        res.redirect(redirectURL);
+
 
     }
     function findAllWidgetsForPage(req,res) {
