@@ -1,9 +1,6 @@
 /**
  * Created by Chaos on 3/21/2017.
  */
-/**
- * Created by Chaos on 3/21/2017.
- */
 module.exports=function () {
     var mongoose=require('mongoose');
     mongoose.Promise=require('bluebird');
@@ -34,7 +31,7 @@ module.exports=function () {
 
     }
     function updatePage(pageId,page) {
-        console.log("model page",page)
+        // console.log("model page",page)
         delete page._id;
         pageModel.update({_id:pageId}, {$set: page},function (err) {
             console.log(err)

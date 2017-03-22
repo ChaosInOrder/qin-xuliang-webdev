@@ -4,12 +4,28 @@
 module.exports=function () {
     var mongoose=require("mongoose");
     var widgetSchema=mongoose.Schema({
-        _website:{type:mongoose.Schema.Types.ObjectId,ref:"website"},
-        name:{type:String,reuqired:true},
-        title:String,
-        widgets:[],
+        _page:{type:mongoose.Schema.Types.ObjectId,ref:"page"},
+        widgetType: {
+            type: String,
+            enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'TEXT'],
+            required: true
+        },
+        index: Number,
+        name: String,
+        text: String,
+        placeholder: String,
+        description: String,
+        url: String,
+        width: String,
+        height: String,
+        rows: Number,
+        size: Number,
+        class: String,
+        icon: String,
+        deletable: Boolean,
+        formatted: Boolean,
         dateCreated:{type:Date,deafult:Date.now()}
-    },{collection:widget});
+    },{collection:"widget"});
     return widgetSchema
 
 }
