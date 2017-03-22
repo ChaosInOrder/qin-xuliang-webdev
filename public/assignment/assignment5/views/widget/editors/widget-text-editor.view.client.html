@@ -3,26 +3,29 @@
         <label>Text</label>
         <input ng-model="model.widget.text"
                class="form-control"
-               placeholder="Input Text"/>
+               placeholder="Text"/>
     </div>
     <div class="form-group">
         <label>Rows</label>
         <input ng-model="model.widget.rows"
                type="number"
                class="form-control"
-               placeholder="Input Rows: larger than 1 will be textarea"/>
+               placeholder="Rows"/>
     </div>
     <div class="form-group">
         <label>Placeholder</label>
         <input ng-model="model.widget.placeholder"
                class="form-control"
-               placeholder="Input Placeholder"/>
+               placeholder="Placeholder"/>
     </div>
-    <div class="form-group">
-        <label>Formatted</label>
-        <input ng-model="model.widget.formatted"
-               type="checkbox"
-               class="form-control"/>
+    <div class="row">
+        <div class="col-xs-3">
+            <label class="control-label" for="formatted">Formatted </label>
+        </div>
+            <div class="col-xs-1">
+                <input ng-model="model.widget.formatted" type="checkbox" />
+            </div>
+
     </div>
 
 </form>
