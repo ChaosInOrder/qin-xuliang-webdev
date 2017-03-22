@@ -6,6 +6,8 @@ module.exports = function (app, model) {
 
     function searchPhotos(req, res) {
         var searchTerm = req.query.searchTerm;
+        // var key = process.env.FLCKR_KEY;
+        // var secret = process.env.FLCKR_SECRET;
         var key = "983708e8fd4ad1fbe4f920b64b1ef141";
         var secret = "5114971b18a4d4b0";
         var Flickr = require("flickrapi"),
