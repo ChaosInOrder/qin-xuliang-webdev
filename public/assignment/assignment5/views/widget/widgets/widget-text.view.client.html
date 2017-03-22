@@ -1,0 +1,18 @@
+<div class="right-up">
+    <button type="button" class="btn btn-default btn-xs">
+        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+    </button>
+    <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-align-justify"></span></a>
+    </button>
+</div>
+
+<div ng-if="widget.formatted" text-angular ta-toolbar="[['h1','h2','h3']]"></div>
+
+<input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
+       placeholder="{{widget.textInput.placeholder}}" class="form-control"/>
+<textarea ng-if="!widget.formatted && (widget.rows > 1)"
+          rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+          class="form-control">{{widget.text}}</textarea>
