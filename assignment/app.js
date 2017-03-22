@@ -5,4 +5,5 @@ module.exports = function (app) {
     require("./services/website.service.server")(app,model);
     require("./services/page.service.server")(app,model);
     require("./services/widget.service.server")(app,model);
+    require("./services/flickr.service.sever")(app,model);
 }

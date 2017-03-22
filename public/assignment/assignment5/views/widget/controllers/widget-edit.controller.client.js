@@ -13,6 +13,10 @@
 
         vm.updateWidget=updateWidget;
         vm.deleteWidget=deleteWidget;
+        vm.requestFkr=requestFkr;
+        function requestFkr() {
+            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/"+vm.widgetId+"/fkr");
+        }
         function init() {
             WidgetService
                 .findWidgetById(vm.widgetId)

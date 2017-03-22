@@ -25,7 +25,7 @@ module.exports=function (app,model) {
                 var redirectURL = "/assignment/assignment5/index.html#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
                 res.redirect(redirectURL);
             },function (err) {
-                res.sendStatus(500).send(err);
+                res.sendStatus(500).send(404);
             })
 
 
