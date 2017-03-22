@@ -1,4 +1,4 @@
-body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 
+body, input, select, textarea,h1 ,h2, h3, h4, h5, h6
 { font-family: Times New Roman , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
 
 input.form-control {
@@ -128,4 +128,12 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+.ta-editor {
+	min-height: 300px;
+	height: auto;
+	overflow: auto;
+	font-family: inherit;
+	font-size: 100%;
+	margin: 20px 0;
 }
