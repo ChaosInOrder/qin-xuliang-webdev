@@ -11,7 +11,10 @@
             <div ng-switch-when="IMAGE" class="content">
                 <ng-include src="'./views/widget/widgets/widget-image.view.client.html'"></ng-include>
             </div>
-            <div ng-switch-when="YOUTUBE" class="youtube-widget">
+            <div ng-switch-when="YOUTUBE" class="youtube-widget content">
+                <ng-include src="'./views/widget/widgets/widget-youtube.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="TEXT" class="content">
                 <ng-include src="'./views/widget/widgets/widget-youtube.view.client.html'"></ng-include>
             </div>
         </div>

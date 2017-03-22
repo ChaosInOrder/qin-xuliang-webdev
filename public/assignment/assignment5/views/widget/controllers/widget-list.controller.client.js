@@ -57,15 +57,6 @@
             var url = "https://www.youtube.com/embed/"+id;
             return $sce.trustAsResourceUrl(url);
         }
-        // function display(widgets) {
-        //     for(var i in widgets){
-        //         if(widgets[i].widgetType=="Youtube" || widgets[i]=="Header"){
-        //             widgets[i].Url=$sce.trustResourceUrl(widgets[i].url);
-        //         }
-        //     }
-        //
-        // }
-
 
     }
 })();
