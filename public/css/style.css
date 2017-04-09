@@ -582,6 +582,33 @@ border: 0 !important;
 	position: relative;
 	min-height: 700px;
 }
+#portfolio-ener {
+	display:none;
+	position: relative;
+	min-height: 700px;
+}
+#portfolio-exer {
+	display:none;
+	position: relative;
+	min-height: 700px;
+}
+#portfolio-aier {
+	display:none;
+	position: relative;
+	min-height: 700px;
+}
+
+#portfolio-assigner {
+	display:none;
+	position: relative;
+	min-height: 700px;
+}
+#portfolio-mongoer {
+	display:none;
+	position: relative;
+	min-height: 700px;
+}
+
 
 
 .porfolio-container {
@@ -725,6 +752,39 @@ border: 0 !important;
 	left: 105%;
 	min-height: 400px;
 }
+#portfolio-en {
+	display: none;
+	position:relative;
+	left: 105%;
+	min-height: 400px;
+}
+#portfolio-ex {
+	display: none;
+	position:relative;
+	left: 105%;
+	min-height: 400px;
+}
+#portfolio-ai {
+	display: none;
+	position:relative;
+	left: 105%;
+	min-height: 400px;
+}
+
+#portfolio-assign {
+	display: none;
+	position:relative;
+	left: 105%;
+	min-height: 400px;
+}
+#portfolio-mongo {
+	display: none;
+	position:relative;
+	left: 105%;
+	min-height: 400px;
+}
+
+
 
 .backToProject {
 
