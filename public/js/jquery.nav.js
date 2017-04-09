@@ -16,6 +16,11 @@
  *   scrollSpeed: 750
  * });
  */
+ jQuery('.skillbar').each(function(){
+	jQuery(this).find('.skillbar-bar').animate({
+		width:jQuery(this).attr('data-percent')
+	},2000);
+});
 
 ;(function($, window, document, undefined){
 
