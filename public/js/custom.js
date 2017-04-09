@@ -522,4 +522,13 @@ $(document).ready(function() {
 	});
 
 });
-			
+$(document).ready(function() {			
+	setTimeout(function(){
+	        $(".head-type").typed({
+	            strings: ["apt-get install konquer"],
+	             typeSpeed: 100,
+	            loop: true,
+	            startDelay: 100
+	        });
+	    }, 0);
+	});
