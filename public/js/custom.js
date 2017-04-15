@@ -166,8 +166,9 @@ $('[placeholder]').focus(function() {
 
 /* ----------------------------- 
 Screenshot Load
------------------------------ */	
-$(document).ready(function() {
+----------------------------- */
+
+$( document ).ajaxStop(function() {
 	'use strict';
 	$('.view-project').on('click', function(e) {
 		e.preventDefault();
@@ -211,7 +212,7 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
+$( document ).ajaxStop(function() {
 	'use strict';
 	$('.view-assign').on('click', function(e) {
 		e.preventDefault();
@@ -256,8 +257,7 @@ $(document).ready(function() {
 });
 
 
-
-$(document).ready(function() {
+$( document ).ajaxStop(function() {
 	'use strict';
 	$('.view-mongo').on('click', function(e) {
 		e.preventDefault();
@@ -302,7 +302,7 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
+$( document ).ajaxStop(function() {
 	'use strict';
 	$('.view-ai').on('click', function(e) {
 		e.preventDefault();
@@ -346,7 +346,7 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
+$( document ).ajaxStop(function() {
 	'use strict';
 	$('.view-en').on('click', function(e) {
 		e.preventDefault();
@@ -390,7 +390,7 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
+$( document ).ajaxStop(function() {
 	'use strict';
 	$('.view-ex').on('click', function(e) {
 		e.preventDefault();
